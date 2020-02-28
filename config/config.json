@@ -1,0 +1,41 @@
+{
+	"actionGroups": {
+		"Default": {
+			"enabled": 1
+		},
+		"Diacritics": {
+			"enabled": 1
+		},
+		"Key maps": {
+			"enabled": 1
+		},
+		"Lock": {
+			"enabled": 1
+		},
+		"Sound": {
+			"enabled": 1
+		},
+		"Tools": {
+			"enabled": 1
+		},
+		"Volume control": {
+			"enabled": 1
+		}
+	},
+	"capsLockAlertEnabled": 1,
+	"capsLockBehaviour": "Free",
+	"infoTipTimeoutSec": 2,
+	"insKeyEnabled": 1,
+	"insomniaPeriodSec": 30,
+	"jsonFile": "..\\config\\config.json",
+	"language": "English",
+	"notifyTipTimeoutSec": 2,
+	"numLockAlertEnabled": 1,
+	"numLockBehaviour": "Free",
+	"soundProfile": "DigiHotkey",
+	"timerMaxSnoozeCount": 5,
+	"timerNotifyTimeoutSec": 5,
+	"timerSnoozePeriodSec": 10,
+	"volume": 39.999985,
+	"volumeTipTimeoutSec": 2
+}

@@ -1,0 +1,18 @@
+[
+    {
+        "hotString"             : "btw",
+        "replacement"           : "by the way",
+        "caseSensitive"         : "1",
+        "requireEndingChar"     : "0",
+        "requireWholeWord"      : "0",
+        "handler"               : ""
+    },
+    {
+        "hotString"             : "dhk",
+        "replacement"           : "Digihotkey",
+        "caseSensitive"         : "1",
+        "requireEndingChar"     : "1",
+        "requireWholeWord"      : "0",
+        "handler"               : ""
+    }
+]

@@ -1,0 +1,14 @@
+# ignore files,
+*.bak
+*.exe
+*.png
+#*.jpg
+*.gif
+*.lxj
+*.log
+
+# ignore folders
+
+test/
+recycle/
+/audio - Copy/

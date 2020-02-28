@@ -1,0 +1,84 @@
+{
+    "English": {
+		"mnuCapsLock"           	: "CapsLock",
+		"mnuDisable"            	: "Disable",
+		"mnuEnable"             	: "Enable",
+        "mnuHotkeys"             	: "HotKeys",
+        "mnuAlwaysOn"             : "Always On",
+        "mnuAlwaysOff"            : "Always Off",
+        "mnuAlert"                : "Alert",
+		"mnuReminder"           	: "Reminder",
+		"mnuNumLock"            	: "NumLock",
+		"mnuSound"              	: "Sound profile",
+		"mnuStatus" 			    : "Dashboard",
+		"mnuTaskMan" 			    : "Task manager",
+		"mnuLang" 					: "Language",
+		"mnuExit"					: "Quit",
+		"mnuInsert"					: "Insert",
+		"mnuInsomnia"				: "Insomnia",
+
+		"lnkDismiss"            	: "Dismiss",
+		"lnkClose" 					:  "Close",
+		"lnkNewTimer"				: "Timer",
+		"lnkNewReminder" 			: "Reminder",
+		"lnkNewInsomnia"			: "Insomnia",
+
+		"mnuPower"              	: "Power plan",
+
+		"msgPowerChanged"	: "Power plan switched to : ",
+
+	    "msgTimerNameExists"  	: "Timer name already exists!",
+		"msgTimerNameInvalid" 	: "Invalid timer name!",
+		"msgTimerNotFound"		: "Timer not found!",
+
+		"msgTimerStartPrefix" 		: "Timer",
+		"msgTimerStartSuffix" 		: "started.",
+		
+		
+		"msgTimerDeletePrefix" 		: "Timer",
+		"msgTimerDeleteSuffix" 		: "deleted !",
+
+		"msgReminderStartPrefix" 		: "Reminder",
+		"msgReminderStartSuffix" 		: "started",
+
+		"msgReminderDeletePrefix" 		: "Reminder",
+		"msgReminderDeleteSuffix" 		: "deleted !",
+
+
+		"msgInsomniaStart" 			: "Insomnia task started",
+		"msgInsomniaStop" 			: "Insomnia task stopped",
+
+
+		"msgOneInsomniaTask"			: "Only one insomnia task is possible",
+		"msgQuitApp"				: "See you!",
+
+		"qstTimerDelete"   	: "Delete Timer?",
+		"qstReminderStop"  	: "Stop reminder?",
+
+		"dlgTime"			: "Time",
+		"dlgInfos"			: "Infos",
+		"dlgTimer" 			: "Timer",
+		"dlgReminder" 		: "Reminder",
+
+		"dlgDelay"			: "Delay",
+		"dlgOnTime"			: "On time",
+		"dlgHour"			: "hour",
+		"dlgMinute"			: "min",
+		"dlgName"			: "Name",
+		"dlgMessage" 		: "Message",
+		"dlgStart" 			: "Start",
+		"dlgCancel" 		: "Cancel",
+
+		"dlgPeriodic"		: "Periodic",
+		"dlgHourly" 		: "On all hours",
+		"dlgEvery" 		    : "Every",
+		"dlgDuration" 		: "Duration",
+
+		"dlgAlwaysOn"		: "Always On",
+		"dlgAlwaysOff" 		: "Always Off",
+		"dlgOn" 			: "On",
+		"dlgOff" 			: "Off",
+		"dlgCapsLock" 		: "CapsLock",
+		"dlgNumLock"   		: "NumLock"
+    }
+}
