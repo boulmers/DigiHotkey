@@ -35,7 +35,7 @@ This project can be used both as productivity helper and as an educational proje
 -   `config\config.json`: General configuration file
 -   `config\hotstrings.json` : Hot strings
 -   `config\keyboard_US.json` ( mean to be read only configuration file)
--   `config\`l`ang.json` : (read only localization configuration file)
+-   `config\lang.json` : (read only localization configuration file)
 
 ### Executing & Compiling
 
