@@ -6,105 +6,105 @@
 class DgLang extends DgObject
 {
 
-	__New()
-	{
-		this.languages		  		:= {}
-		this.mnuCapsLock     		:= "CapsLock"
-		this.mnuDisable      		:= "Disable"
-		this.mnuEnable       		:= "Enable"
+    __New()
+    {
+        this.languages		  		:= {}
+        this.mnuCapsLock     		:= "CapsLock"
+        this.mnuDisable      		:= "Disable"
+        this.mnuEnable       		:= "Enable"
         this.mnuHotkeys       		:= "HotKeys"
         this.mnuAlwaysOn      		:= "Always On"
         this.mnuAlwaysOff     		:= "Always Off"
         this.mnuAlert         		:= "Alert"
-		this.mnuReminder     		:= "Reminder"
-		this.mnuNumLock      		:= "NumLock"
-		this.mnuSound        		:= "Sound"
-		this.mnuLang 				:= "Language"
-		this.mnuExit 				:= "Quit"
-		this.mnuInsomnia			:= "Insomnia"
+        this.mnuReminder     		:= "Reminder"
+        this.mnuNumLock      		:= "NumLock"
+        this.mnuSound        		:= "Sound"
+        this.mnuLang 				:= "Language"
+        this.mnuExit 				:= "Quit"
+        this.mnuInsomnia			:= "Insomnia"
 
-		this.mnuPower        		:= "Power plan"
-		this.mnuDashboard			:= "Dashboard"
-		this.mnuTaskMan 			:= "Task manager"
-		this.mnuInsert				:= "Insert"
+        this.mnuPower        		:= "Power plan"
+        this.mnuDashboard			:= "Dashboard"
+        this.mnuTaskMan 			:= "Task manager"
+        this.mnuInsert				:= "Insert"
 
-		this.lnkDismiss          	:= "Dismiss"
-		this.lnkClose 				:=  "Close"
-		this.lnkNewTimer 			:= "New Timer"
-		this.lnkNewReminder 		:= "New Reminder"
-		this.lnkNewInsomnia			:= "New Insomnia"
+        this.lnkDismiss          	:= "Dismiss"
+        this.lnkClose 				:=  "Close"
+        this.lnkNewTimer 			:= "New Timer"
+        this.lnkNewReminder 		:= "New Reminder"
+        this.lnkNewInsomnia			:= "New Insomnia"
 
-		this.msgTimer 				:= "Timer"
-		this.msgReminder 			:= "Reminder"
+        this.msgTimer 				:= "Timer"
+        this.msgReminder 			:= "Reminder"
 
-		this.msgPowerChanged 		:= "Power plan switched to : "
+        this.msgPowerChanged 		:= "Power plan switched to : "
 
-		this.msgTimerNameExists  	:= "Timer name already exists !"
-		this.msgTimerNameInvalid 	:= "Invalid timer name !"
-		this.msgTimerNotFound	   	:= "Timer not found!"
+        this.msgTimerNameExists  	:= "Timer name already exists !"
+        this.msgTimerNameInvalid 	:= "Invalid timer name !"
+        this.msgTimerNotFound	   	:= "Timer not found!"
 
-		this.msgTimerStartPrefix 	:= "Timer"
-		this.msgTimerStartSuffix 	:= "started."
+        this.msgTimerStartPrefix 	:= "Timer"
+        this.msgTimerStartSuffix 	:= "started."
 
-		this.msgTimerDeletePrefix 	:= "Timer"
-		this.msgTimerDeleteSuffix 	:= "deleted !"
+        this.msgTimerDeletePrefix 	:= "Timer"
+        this.msgTimerDeleteSuffix 	:= "deleted !"
 
-		this.msgTimeExpired			:= "Time expired !"
+        this.msgTimeExpired			:= "Time expired !"
 
-		this.msgReminderStartPrefix := "Reminder"
-		this.msgReminderStartSuffix := "started."
+        this.msgReminderStartPrefix := "Reminder"
+        this.msgReminderStartSuffix := "started."
 
-		this.msgReminderDeletePrefix := "Timer"
-		this.msgReminderDeleteSuffix := "deleted !"
+        this.msgReminderDeletePrefix := "Timer"
+        this.msgReminderDeleteSuffix := "deleted !"
 
-		this.msgInsomniaStart		:= "Insomnia task started",
-		this.msgInsomniaStop		:= "Insomnia task stopped",
+        this.msgInsomniaStart		:= "Insomnia task started",
+        this.msgInsomniaStop		:= "Insomnia task stopped",
 
-		this.msgOneInsomniaTask	     := "Only one insomnia task is possible"
+        this.msgOneInsomniaTask	     := "Only one insomnia task is possible"
 
-		this.msgQuitApp				:= "See you!"
-
-
-		this.qstTaskStop   		       := "Stop "
+        this.msgQuitApp				:= "See you!"
 
 
-
-		this.dlgTimer 					:= "Timer"
-		this.dlgReminder 				:= "Reminder"
-		this.dlgInsomnia				:= "Insomnia"
+        this.qstTaskStop   		       := "Stop "
 
 
 
-		this.dlgTime					:= "Time"
-		this.dlgInfos					:= "Infos"
+        this.dlgTimer 					:= "Timer"
+        this.dlgReminder 				:= "Reminder"
+        this.dlgInsomnia				:= "Insomnia"
 
-		this.dlgDelay					:= "Delay"
-		this.dlgOnTime					:= "On time"
-		this.dlgHour					:= "hour"
-		this.dlgMinute					:= "min"
-		this.dlgName					:= "Name"
-		this.dlgMessage 				:= "Message"
-		this.dlgStart 					:= "Start"
-		this.dlgCancel 					:= "Cancel"
 
-		this.dlgPeriodic				:= "Periodic"
-		this.dlgHourly 					:= "Houly"
-		this.dlgEvery 		    		:= "Every"
-		this.dlgDuration 				:= "Duration"
 
-		this.dlgTaskMan  				:= "Task manager"
-		this.dlgAlwaysOn				:= "Always On"
-		this.dlgAlwaysOff 				:= "Always Off"
-		this.dlgOn 						:= "On"
-		this.dlgOff 					:= "Off"
+        this.dlgTime					:= "Time"
+        this.dlgInfos					:= "Infos"
 
-		this.dlgCapsLock 				:= "CapsLock"
-		this.dlgNumLock   				:= "NumLock"
+        this.dlgDelay					:= "Delay"
+        this.dlgOnTime					:= "On time"
+        this.dlgHour					:= "hour"
+        this.dlgMinute					:= "min"
+        this.dlgName					:= "Name"
+        this.dlgMessage 				:= "Message"
+        this.dlgStart 					:= "Start"
+        this.dlgCancel 					:= "Cancel"
+
+        this.dlgPeriodic				:= "Periodic"
+        this.dlgHourly 					:= "Houly"
+        this.dlgEvery 		    		:= "Every"
+        this.dlgDuration 				:= "Duration"
+
+        this.dlgTaskMan  				:= "Task manager"
+        this.dlgAlwaysOn				:= "Always On"
+        this.dlgAlwaysOff 				:= "Always Off"
+        this.dlgOn 						:= "On"
+        this.dlgOff 					:= "Off"
+
+        this.dlgCapsLock 				:= "CapsLock"
+        this.dlgNumLock   				:= "NumLock"
 
     }
     ;------------------------------------------------------------------------------
-	loadFromJson( jsonFile_ )
-	{
+    loadFromJson( jsonFile_ )
+    {
         _Logger.BEGIN( A_ThisFunc ,  "jsonFile_", jsonFile_)
 
         FileRead, jsonContent, % jsonFile_
@@ -112,17 +112,17 @@ class DgLang extends DgObject
         this.languages   := JSON.Load( jsonContent )
 
         _Logger.END( A_ThisFunc )
-	}
+    }
     ;------------------------------------------------------------------------------
-	setLanguage( langName_ )
-	{
-		if( this.languages.HasKey( langName_ )) {
-			language := this.languages[langName_]
-			ObjectCopy( dest := this , source := language )
+    setLanguage( langName_ )
+    {
+        if( this.languages.HasKey( langName_ )) {
+            language := this.languages[langName_]
+            ObjectCopy( dest := this , source := language )
 
-		} else {
-			_Logger.ERROR( A_ThisFunc, "language not found!")
-		}
-	}
+        } else {
+            _Logger.ERROR( A_ThisFunc, "language not found!")
+        }
+    }
 
 }

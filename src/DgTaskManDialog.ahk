@@ -2,23 +2,23 @@ class DgTaskManDialog extends DgObject
 {
     __New()
     {
-		this.fadeDelayTick   	:= 100
-		this.timeoutSec   	    := timeoutSec_
+        this.fadeDelayTick   	:= 100
+        this.timeoutSec   	    := timeoutSec_
 
-		this.winColor      	    := enumColor.FloralWhite 		; windows Back Color
-		this.titleColor      	:= enumColor.DimGray 		; title front color
-		this.textColor      	:= enumColor.SteelBlue4  	; message back color
+        this.winColor      	    := enumColor.FloralWhite 		; windows Back Color
+        this.titleColor      	:= enumColor.DimGray 		; title front color
+        this.textColor      	:= enumColor.SteelBlue4  	; message back color
 
-		this.radius		 	        := 10         				; corner radius , set to 0 for squared win
+        this.radius		 	        := 10         				; corner radius , set to 0 for squared win
 
-		this.progColor          := enumColor.Azure3
+        this.progColor          := enumColor.Azure3
         this.title              := ""
         this.transparency       := 220  ; 0-255 invisible-opaque
 
         this.winX               := 0
         this.winY               := 0
 
-		this.hWnd        	    := 0
+        this.hWnd        	    := 0
     }
     ;------------------------------------------------------------------------------
     redraw( )
@@ -48,7 +48,7 @@ class DgTaskManDialog extends DgObject
         Gui % this.hWnd ": Color", % this.winColor
 
         ;Gui % this.hWnd ": Font", % " c" this.titleColor " s10 wBold", % " Segoe UI"
-		;Gui % this.hWnd ": Add", Text, % " X" leftM " Y" sumY  , % _App.ui.lang.dlgTaskMan                            ; title
+        ;Gui % this.hWnd ": Add", Text, % " X" leftM " Y" sumY  , % _App.ui.lang.dlgTaskMan                            ; title
 
         ;WinGetPos, txtX,txtY, txtW, txtH, % "ahk_id" hwndTxt
 
@@ -175,34 +175,34 @@ class DgTaskManDialog extends DgObject
         _Logger.END( A_ThisFunc )
 
         Critical, Off
-	}
+    }
     ;------------------------------------------------------------------------------
-	destroy( animate_ )
-	{
-		;_Logger.BEGIN(  A_ThisFunc )
-		DetectHiddenWindows, On
+    destroy( animate_ )
+    {
+        ;_Logger.BEGIN(  A_ThisFunc )
+        DetectHiddenWindows, On
 
-		if( ! WinExist("ahk_id" this.hWnd ))
-			return
+        if( ! WinExist("ahk_id" this.hWnd ))
+            return
 
-		WinGetPos, winX, winY, winW, winH, % "ahk_id" this.hWnd
+        WinGetPos, winX, winY, winW, winH, % "ahk_id" this.hWnd
 
         this.winX := winX
         this.winY := winY
 
-		if( w32IsWindowVisible( this.hWnd ) ) {
+        if( w32IsWindowVisible( this.hWnd ) ) {
             ; this.hWnd && WinExist("ahk_id" this.hWnd) ) {
-			if( animate_ ) {
+            if( animate_ ) {
                 w32AnimateWin( this.hWnd, this.fadeDelayTick , enumAnim.FADE_OUT )
             }
 
-			Gui %  this.hWnd ": Destroy"
-		}
+            Gui %  this.hWnd ": Destroy"
+        }
 
-		DetectHiddenWindows, Off
+        DetectHiddenWindows, Off
 
-		;_Logger.END(  A_ThisFunc )
-	}
+        ;_Logger.END(  A_ThisFunc )
+    }
     ;------------------------------------------------------------------------------
     OnCmdStopTask( task_ )
     {

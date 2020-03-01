@@ -40,9 +40,9 @@ class DgInfoTip
 {
     __New( args_ , texts_ )
     {
-		this.timeoutSec     := args_.timeoutSec 		? args_.timeoutSec 	  : 2 ; negative => fire once
-		this.winColor       := args_.winColor 		? args_.winColor 	  : enumColor.LightGray
-		this.textColor      := args_.textColor 		? args_.textColor 	  : enumColor.LedOffBack 		; message back color
+        this.timeoutSec     := args_.timeoutSec 		? args_.timeoutSec 	  : 2 ; negative => fire once
+        this.winColor       := args_.winColor 		? args_.winColor 	  : enumColor.LightGray
+        this.textColor      := args_.textColor 		? args_.textColor 	  : enumColor.LedOffBack 		; message back color
         this.textSize       := args_.textSize 		? args_.textSize 	  : 20
         this.textStyle      := args_.textStyle 		? args_.textStyle 	  : "Regular"
         this.textFont       := args_.textFont 		? args_.textFont 	  : "Segoe UI"
@@ -55,7 +55,7 @@ class DgInfoTip
         this.transparency   := 180
 
         this.timerCallback  := this.close.Bind( this )
-		this.timer 		    := new DgSysTimer( this.timerCallback, -1000*this.timeoutSec )
+        this.timer 		    := new DgSysTimer( this.timerCallback, -1000*this.timeoutSec )
 
         this.inAnimation    := enumAnim.ZOOM_IN
         this.outAnimation   := enumAnim.ZOOM_OUT
@@ -65,7 +65,7 @@ class DgInfoTip
         this.hWnd           := 0
         this.hText          := 0
     }
-	;------------------------------------------------------------------------------
+    ;------------------------------------------------------------------------------
     __Delete()
     {
        this.destroy()

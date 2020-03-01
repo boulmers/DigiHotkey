@@ -249,8 +249,8 @@ class DgUI extends DgObject
         _Logger.END(  A_ThisFunc )
     }
     ;------------------------------------------------------------------------------
-	updateTasksProgress()
-	{
+    updateTasksProgress()
+    {
         _Logger.BEGIN(  A_ThisFunc )
         
         this.pausedTaskColorSwitch  := ! this.pausedTaskColorSwitch
@@ -258,15 +258,15 @@ class DgUI extends DgObject
         ;_Logger.TRACE( A_ThisFunc, "count ", _App.taskMan.tasks.count() )
 
         if( this.dlgTaskMan.isVisible() )
-		{
-			for name, task in _App.taskMan.tasks {
-				this.updateTaskProgress( task )
+        {
+            for name, task in _App.taskMan.tasks {
+                this.updateTaskProgress( task )
                 ; _Logger.TRACE(A_ThisFunc, "name ", task.name )
-			}
-		}
+            }
+        }
 
         _Logger.END(  A_ThisFunc )
-	}
+    }
     ;------------------------------------------------------------------------------
     updateTaskProgress( task_ ) ; update task status in the dashboard
     {

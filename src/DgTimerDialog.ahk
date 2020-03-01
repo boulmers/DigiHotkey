@@ -138,7 +138,7 @@ class DgTimerDialog ;extends DgObject
 
         Gui % this.hWnd ": Show" , hide
 
-		WinGetPos, winX, winY, winW, winH, % "ahk_id" this.hWnd
+        WinGetPos, winX, winY, winW, winH, % "ahk_id" this.hWnd
 
         if( this.winX < 0 && this.winY < 0 ) {
 

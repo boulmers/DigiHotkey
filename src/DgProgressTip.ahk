@@ -40,7 +40,7 @@ class DgProgressTip
         this.textSize        := args_.textSize         ? args_.textSize 	        : 5
 
         this.timerCallback  := this.close.Bind( this )
-		this.timer 			:= new DgSysTimer( this.timerCallback, -1000*this.timeoutSec )
+        this.timer 			:= new DgSysTimer( this.timerCallback, -1000*this.timeoutSec )
 
         this.hWnd           := 0
         this.hProgess       := 0

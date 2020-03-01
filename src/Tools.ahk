@@ -80,31 +80,31 @@ GetTaskbarHeight(default := 0)
 ;==============================================================================
 GetCurrentMonitorIndex()
 {
-	CoordMode, Mouse, Screen
-	MouseGetPos, mx, my
-	SysGet, monitorsCount, 80
+    CoordMode, Mouse, Screen
+    MouseGetPos, mx, my
+    SysGet, monitorsCount, 80
 
-	Loop %monitorsCount%
+    Loop %monitorsCount%
     {
-		SysGet, monitor, Monitor, %A_Index%
-		if (monitorLeft <= mx && mx <= monitorRight && monitorTop <= my && my <= monitorBottom)
+        SysGet, monitor, Monitor, %A_Index%
+        if (monitorLeft <= mx && mx <= monitorRight && monitorTop <= my && my <= monitorBottom)
         {
-			Return A_Index
-		}
-	}
-	Return 1
+            Return A_Index
+        }
+    }
+    Return 1
 }
 ;==============================================================================
 CoordXCenterScreen(WidthOfGUI, ScreenNumber)
 {
     SysGet, Mon1, Monitor, %ScreenNumber%
-	return (( Mon1Right-Mon1Left - WidthOfGUI ) / 2) + Mon1Left
+    return (( Mon1Right-Mon1Left - WidthOfGUI ) / 2) + Mon1Left
 }
 ;==============================================================================
 CoordYCenterScreen( HeightofGUI, ScreenNumber)
 {
     SysGet, Mon1, Monitor, %ScreenNumber%
-	return (Mon1Bottom - 30 - HeightofGUI ) / 2
+    return (Mon1Bottom - 30 - HeightofGUI ) / 2
 }
 ;==============================================================================
 GetClientSize(hwnd, ByRef w, ByRef h)
@@ -161,15 +161,15 @@ PathCombine( abs, rel) {
 ;==============================================================================
 FormatSeconds( s_ )
 {
-	sec  := 1,    min  := 60*sec,  hour := 60*min
+    sec  := 1,    min  := 60*sec,  hour := 60*min
 
-	h := s_ // hour		, s_ := Mod( s_, hour )
-	m := s_ // min	    , s_ := Mod( s_, min  )
-	s := Round( s_, 0)
+    h := s_ // hour		, s_ := Mod( s_, hour )
+    m := s_ // min	    , s_ := Mod( s_, min  )
+    s := Round( s_, 0)
 
     time :=  Format("{:02} : {:02} : {:02}", h, m, s)
 
-	return time
+    return time
 }
 ;==============================================================================
 ;https://autohotkey.com/board/topic/34188-calculating-time-difference/
@@ -223,11 +223,11 @@ HexToDec(str)
 ;https://autohotkey.com/boards/viewtopic.php?t=3607 by HotKeyIt
 DecToHex(dec)
 {
-	static U := A_IsUnicode ? "w" : "a"
-	VarSetCapacity(S,65,0)
-	DllCall("msvcrt\_i64to" U, "Int64",dec, "Str",S, "Int", 16) ;; 16 = hex base
-	StringUpper, S, S
-	return S
+    static U := A_IsUnicode ? "w" : "a"
+    VarSetCapacity(S,65,0)
+    DllCall("msvcrt\_i64to" U, "Int64",dec, "Str",S, "Int", 16) ;; 16 = hex base
+    StringUpper, S, S
+    return S
 }
 ;==============================================================================
 ; https://www.autohotkey.com/boards/viewtopic.php?t=791;

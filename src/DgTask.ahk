@@ -1,166 +1,166 @@
 class DgTask extends DgObject
 {
-	__New( name_, callback_, dueTime_ , periodSec_ , repeatCount_  )
-	{
-		_Logger.BEGIN( A_ThisFunc)
-		
-		;_Logger.TRACE( "name_", name_, "callback_", callback_, "dueTime_", dueTime_, "periodSec_" , periodSec_ , "repeatCount_", repeatCount_)
+    __New( name_, callback_, dueTime_ , periodSec_ , repeatCount_  )
+    {
+        _Logger.BEGIN( A_ThisFunc)
+        
+        ;_Logger.TRACE( "name_", name_, "callback_", callback_, "dueTime_", dueTime_, "periodSec_" , periodSec_ , "repeatCount_", repeatCount_)
 
-		this.name 		 		:= name_
-		this.repeatCount 		:= repeatCount_
-		; NOTE : any callback should have a task as first parameter; see execute method
-		this.callback			:= callback_ 
-		this.dueTime 			:= dueTime_
-		this.periodSec 			:= periodSec_ 																			; repeat period in seconds
-		this.exeCount		 	:= 0
+        this.name 		 		:= name_
+        this.repeatCount 		:= repeatCount_
+        ; NOTE : any callback should have a task as first parameter; see execute method
+        this.callback			:= callback_ 
+        this.dueTime 			:= dueTime_
+        this.periodSec 			:= periodSec_ 																			; repeat period in seconds
+        this.exeCount		 	:= 0
 
-		this.dueTimes			:= []
-		this.isLastExecution	:= false
-		this.startTime    		:= A_Now
-		this.remainingTime		:= 0
-		this.isPausable     	:= false
+        this.dueTimes			:= []
+        this.isLastExecution	:= false
+        this.startTime    		:= A_Now
+        this.remainingTime		:= 0
+        this.isPausable     	:= false
 
-		this.isPaused 			:= false
-		this.pausedTime 		:= ""
+        this.isPaused 			:= false
+        this.pausedTime 		:= ""
 
-		this.message 			:= ""
-		this.type				:= ""
+        this.message 			:= ""
+        this.type				:= ""
 
-		this.computeDueTimes()
+        this.computeDueTimes()
 
-		;_Logger.TRACE( A_ThisFunc,  "this.dueTimes",  this.dueTimes )
+        ;_Logger.TRACE( A_ThisFunc,  "this.dueTimes",  this.dueTimes )
 
-		_Logger.END( A_ThisFunc )
-	}
+        _Logger.END( A_ThisFunc )
+    }
     ;------------------------------------------------------------------------------
-	computeDueTimes()
-	{
-		_Logger.BEGIN( A_ThisFunc)
-		
-		currDueTime :=  this.dueTime
+    computeDueTimes()
+    {
+        _Logger.BEGIN( A_ThisFunc)
+        
+        currDueTime :=  this.dueTime
 
-		this.dueTimes.Push( currDueTime )
+        this.dueTimes.Push( currDueTime )
 
-		Loop, % this.repeatCount { 	; tested for negative numbers
-			currDueTime += % this.periodSec ,   Seconds
-			this.dueTimes.Push( currDueTime )
-		}
+        Loop, % this.repeatCount { 	; tested for negative numbers
+            currDueTime += % this.periodSec ,   Seconds
+            this.dueTimes.Push( currDueTime )
+        }
 
-		_Logger.END( A_ThisFunc )
-	}
+        _Logger.END( A_ThisFunc )
+    }
     ;------------------------------------------------------------------------------
-	execute()
-	{
-		_Logger.BEGIN( A_ThisFunc )
+    execute()
+    {
+        _Logger.BEGIN( A_ThisFunc )
 
-		this.exeCount += 1
+        this.exeCount += 1
 
-		this.isLastExecution := (this.exeCount >= this.dueTimes.Count())
+        this.isLastExecution := (this.exeCount >= this.dueTimes.Count())
 
-		if( this.callback ) {
-			this.callback.Call( this )
-		}
+        if( this.callback ) {
+            this.callback.Call( this )
+        }
 
-		_Logger.END( A_ThisFunc , "this.isLastExecution", this.isLastExecution)
-	}
+        _Logger.END( A_ThisFunc , "this.isLastExecution", this.isLastExecution)
+    }
     ;------------------------------------------------------------------------------
-	pause()
-	{
-		this.isPaused 	:= true
-		this.pausedTime := A_Now
-	}
-	;------------------------------------------------------------------------------
-	isDone()
-	{
-		_Logger.BEGIN( A_ThisFunc)
-
-		done := (this.exeCount >= this.dueTimes.Count() )
-
-		_Logger.END( A_ThisFunc, "done", done)
-
-		return done
-	}
+    pause()
+    {
+        this.isPaused 	:= true
+        this.pausedTime := A_Now
+    }
     ;------------------------------------------------------------------------------
-	isDue()
-	{
-		_Logger.BEGIN( A_ThisFunc )
+    isDone()
+    {
+        _Logger.BEGIN( A_ThisFunc)
 
-		dueTime := this.dueTimes[this.exeCount+1] ; array are 1 based in AHK
-		due := ( A_Now >= dueTime )
+        done := (this.exeCount >= this.dueTimes.Count() )
 
-		if( due && this.Type == enumTaskType.Timer)  { ; on first due time, disable pause as the remainings are only snooze reminders
-			this.isPausable := false
-		}
+        _Logger.END( A_ThisFunc, "done", done)
 
-		_Logger.END( A_ThisFunc,"this.exeCount", this.exeCount, "dueTime", dueTime, "this.dueTimes", this.dueTimes, "due", due )
-		return   due
-	}
+        return done
+    }
     ;------------------------------------------------------------------------------
-	resume()
-	{
-		_Logger.BEGIN( A_ThisFunc )
-		this.isPaused  	:= false
-		this.resumeTime := A_Now
+    isDue()
+    {
+        _Logger.BEGIN( A_ThisFunc )
 
-		timeDiff 		:= A_Now
-		timeDiff        -=  this.pausedTime, Seconds
+        dueTime := this.dueTimes[this.exeCount+1] ; array are 1 based in AHK
+        due := ( A_Now >= dueTime )
 
-		remainingCount := this.dueTimes.Count() ;- this.exeCount
+        if( due && this.Type == enumTaskType.Timer)  { ; on first due time, disable pause as the remainings are only snooze reminders
+            this.isPausable := false
+        }
 
-		;_Logger.TRACE( A_ThisFunc, "timeDiff", timeDiff, "dueTimes", this.dueTimes  )
+        _Logger.END( A_ThisFunc,"this.exeCount", this.exeCount, "dueTime", dueTime, "this.dueTimes", this.dueTimes, "due", due )
+        return   due
+    }
+    ;------------------------------------------------------------------------------
+    resume()
+    {
+        _Logger.BEGIN( A_ThisFunc )
+        this.isPaused  	:= false
+        this.resumeTime := A_Now
 
-		Loop, % remainingCount
-		{
-			dueTime := this.dueTimes[A_Index]
-			dueTime += timeDiff, Seconds
-			this.dueTimes[A_Index] := dueTime
-		}
+        timeDiff 		:= A_Now
+        timeDiff        -=  this.pausedTime, Seconds
 
-		this.startTime := A_Now ; so as remaining time progress still remain consistant
+        remainingCount := this.dueTimes.Count() ;- this.exeCount
 
-		;_Logger.TRACE( A_ThisFunc, "timeDiff", timeDiff,  "dueTimes", this.dueTimes  )
-		_Logger.END( A_ThisFunc )
-	}
-	;------------------------------------------------------------------------------
-	getRemainingTime()
-	{
-		_Logger.BEGIN( A_ThisFunc )
+        ;_Logger.TRACE( A_ThisFunc, "timeDiff", timeDiff, "dueTimes", this.dueTimes  )
 
-		if( this.isPaused ) {
-			return this.remainingTime ; stored in a previous call
-		}
+        Loop, % remainingCount
+        {
+            dueTime := this.dueTimes[A_Index]
+            dueTime += timeDiff, Seconds
+            this.dueTimes[A_Index] := dueTime
+        }
 
-		if( this.Type == enumTaskType.Reminder or this.Type == enumTaskType.Insomnia ) {
-			dueTime := this.dueTimes[this.dueTimes.MaxIndex()]  														; the reminder time left is relative to the last periodic time
-		} else {
-			dueTime := this.dueTimes[this.dueTimes.MinIndex()]
-		}
+        this.startTime := A_Now ; so as remaining time progress still remain consistant
 
-		 ; init
-		now := A_Now
-		dueTime -= A_Now, Seconds
-		this.remainingTime := dueTime
-		this.remainingTime := ( this.remainingTime > 0 ) ? this.remainingTime : 0 																	; ensure a positive remainingTime as it still may be displayed on the dashboard
+        ;_Logger.TRACE( A_ThisFunc, "timeDiff", timeDiff,  "dueTimes", this.dueTimes  )
+        _Logger.END( A_ThisFunc )
+    }
+    ;------------------------------------------------------------------------------
+    getRemainingTime()
+    {
+        _Logger.BEGIN( A_ThisFunc )
 
-		;_Logger.TRACE( A_ThisFunc, "now", now, "dueTime", dueTime, "remainingTime",  this.remainingTime )
+        if( this.isPaused ) {
+            return this.remainingTime ; stored in a previous call
+        }
 
-		_Logger.END( A_ThisFunc )
+        if( this.Type == enumTaskType.Reminder or this.Type == enumTaskType.Insomnia ) {
+            dueTime := this.dueTimes[this.dueTimes.MaxIndex()]  														; the reminder time left is relative to the last periodic time
+        } else {
+            dueTime := this.dueTimes[this.dueTimes.MinIndex()]
+        }
 
-		return  this.remainingTime
-	}
-	;------------------------------------------------------------------------------
-	getTotalTime()
-	{
-		if( this.Type == enumTaskType.Reminder ) {
-			dueTime := this.dueTimes[this.dueTimes.MaxIndex()]  														; the reminder time left is relative to the last periodic time
-		} else {
-			dueTime := this.dueTimes[this.dueTimes.MinIndex()]
-		}
+         ; init
+        now := A_Now
+        dueTime -= A_Now, Seconds
+        this.remainingTime := dueTime
+        this.remainingTime := ( this.remainingTime > 0 ) ? this.remainingTime : 0 																	; ensure a positive remainingTime as it still may be displayed on the dashboard
 
-		totalTime 	:= dueTime
-		totalTime 	-= this.startTime, Seconds
+        ;_Logger.TRACE( A_ThisFunc, "now", now, "dueTime", dueTime, "remainingTime",  this.remainingTime )
 
-		;_Logger.TRACE( A_ThisFunc,  "lastDueTime",  lastDueTime, "totalTime",totalTime )
-		return totalTime
-	}
+        _Logger.END( A_ThisFunc )
+
+        return  this.remainingTime
+    }
+    ;------------------------------------------------------------------------------
+    getTotalTime()
+    {
+        if( this.Type == enumTaskType.Reminder ) {
+            dueTime := this.dueTimes[this.dueTimes.MaxIndex()]  														; the reminder time left is relative to the last periodic time
+        } else {
+            dueTime := this.dueTimes[this.dueTimes.MinIndex()]
+        }
+
+        totalTime 	:= dueTime
+        totalTime 	-= this.startTime, Seconds
+
+        ;_Logger.TRACE( A_ThisFunc,  "lastDueTime",  lastDueTime, "totalTime",totalTime )
+        return totalTime
+    }
 }

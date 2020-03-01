@@ -48,7 +48,7 @@ class DgAudio extends DgObject
     applyConfig()
     {
         this.setVolume( _App.PID, _App.config.volume     )
-		this.setActiveSoundProfile( _app.config.soundProfile )
+        this.setActiveSoundProfile( _app.config.soundProfile )
     }
     ;------------------------------------------------------------------------------
     ; WARNING : helper function to purge audio subdirs. DO NOT CALL until you understand how it wourks.

@@ -91,7 +91,7 @@ class DgInsomniaDialog ;extends DgObject
 
         Gui % this.hWnd ": Show" , hide
 
-		WinGetPos, winX, winY, winW, winH , % "ahk_id" this.hWnd
+        WinGetPos, winX, winY, winW, winH , % "ahk_id" this.hWnd
 
         this.state.load()
 
