@@ -40,7 +40,7 @@ class DgTaskManDialog extends DgObject
 
         ;_Logger.COUNT(  A_ThisFunc, "line", A_LineNumber )
 
-        Gui, New, +AlwaysOnTop +ToolWindow -SysMenu  hwndhWnd ; +Border
+        Gui, New, +AlwaysOnTop +ToolWindow   hwndhWnd ; +Border
         this.hWnd := hWnd
 
         OnMessage(0x0010, this.OnCmdClose.Bind(this)) ; 0x0010 = WM_CLOSE 
