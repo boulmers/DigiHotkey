@@ -7,6 +7,15 @@ OnMenu_PowerProfileSelect()
     _Logger.END( A_ThisFunc )
 }
 ;==============================================================================
+OnMenu_LanguageSelect() 
+{
+    _Logger.BEGIN( A_ThisFunc )
+
+    _App.setActiveLanguage( languageName := A_ThisMenuItem)
+
+    _Logger.END( A_ThisFunc )
+}
+;==============================================================================
 OnMenu_CapsLockAlwaysOn()
 {
     _Logger.BEGIN( A_ThisFunc )

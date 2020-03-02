@@ -24,9 +24,8 @@ class DgUI extends DgObject
         this.mTray.setIcon( A_WorkingDir . "/FR.ICO")
 
         this.lang              := new DgLang()
-
         this.lang.loadFromJson( "..\config\lang.json" )
-        this.lang.setLanguage( _App.config.language )
+        this.setActiveLanguage( _App.config.languageName )
       
         mSeparator              := new DgMenu( { name: "-"})
 
@@ -51,7 +50,9 @@ class DgUI extends DgObject
 
         this.mPower         := new DgMenu( { name: "Power",  caption: this.lang.mnuPower    } )
         this.mActionGroups  := new DgMenu( { name: "ActionGroups",  caption: this.lang.mnuHotkeys  } )
-        this.miInsomnia      := new DgMenu( { name: "Insomnia", caption: this.lang.mnuInsomnia, func: Func("OnMenu_Insomnia")})
+        this.miInsomnia     := new DgMenu( { name: "Insomnia", caption: this.lang.mnuInsomnia, func: Func("OnMenu_Insomnia")})
+        this.mLanguage      :=  new DgMenu( { name: "Language", caption: this.lang.mnuLanguage})
+
 
         for profileName, powerProfile in _App.powerMan {
 
@@ -72,7 +73,13 @@ class DgUI extends DgObject
             this.mActionGroups.addItem( item )
         }
 
-        menuItems :=  [ this.mActionGroups, this.miInsomnia, this.mSound, this.mPower, this.miInsert, this.mNumLock, this.mCapsLock, this.mTaskMan, this.mExit]
+        for languageName, language in _App.ui.lang.languages {
+
+            item := new DgMenu(  { name: languageName, caption: languageName, func:  Func("OnMenu_LanguageSelect") } )
+            this.mLanguage.addItem( item )
+        }
+
+        menuItems :=  [ this.mActionGroups, this.miInsomnia, this.mSound, this.mPower, this.miInsert, this.mNumLock, this.mCapsLock, this.mTaskMan,this.mLanguage, this.mExit]
 
         for _, menuItem in menuItems {
             this.mTray.addItem( menuItem )
@@ -111,7 +118,7 @@ class DgUI extends DgObject
 
         this.taskbarHeight          := GetTaskbarHeight( default := 50)
         ;activePowerPlanName := _App.powerMan.getActivePlanName()
-
+        
         this.applyConfig()
 
         _Logger.END(  A_ThisFunc )
@@ -132,6 +139,7 @@ class DgUI extends DgObject
     applyConfig()
     {
         this.setCapsLockAlert( _App.config.capsLockAlertEnabled )
+        
         this.setNumLockAlert( _App.config.numLockAlertEnabled  )
 
         this.setCapsLockBehaviour( _App.config.capsLockBehaviour )
@@ -139,6 +147,41 @@ class DgUI extends DgObject
         this.setNumLockBehaviour(_ App.config.numLockBehaviour )
 
         this.setActiveSoundProfile( _App.config.soundProfile )
+
+        this.updateActiveLanguageMenu( _App.config.languageName, showInfoMessage := false ) 
+
+    }
+    ;------------------------------------------------------------------------------
+    setActiveLanguage( languageName_ ) 
+    {
+        this.lang.setLanguage( languageName_ ) 
+        this.languageName := languageName_
+    }
+    ;------------------------------------------------------------------------------
+    updateActiveLanguageMenu( languageName_ , showInfoMessage) 
+    {
+
+        _Logger.BEGIN(  A_ThisFunc )
+
+        ;_Logger.TRACE( A_ThisFunc, "Active language", languageName_)
+
+        for _, languageMenu in this.mLanguage.children {
+
+            if( languageMenu.caption == languageName_ ) {
+
+                ;_Logger.TRACE( A_ThisFunc, "Checked Profile", profileMenu.caption)
+                languageMenu.setChecked( true )
+
+            } else {
+                ;_Logger.TRACE( A_ThisFunc, "Unchecked Profile", profileMenu.caption)
+                languageMenu.setChecked( false )
+            }
+        }
+
+        if( showInfoMessage ) {
+            this.showInfoMessage( _App.name, this.lang.msgLanguageChange )
+        }
+        _Logger.END(  A_ThisFunc )
     }
     ;------------------------------------------------------------------------------
     showVolumeTip( value_ , color_, text_ := "" )
@@ -519,8 +562,10 @@ class DgUI extends DgObject
     ;------------------------------------------------------------------------------
     showInfoMessage( title, message )
     {
+        _Logger.TRACE( A_ThisFunc, "showInfoMessage", message)
         options := 0 + 64 + 8192 ; OK + Icon Asterisk (info) + System Modal
         MsgBox,  % options, % title, % message
+        
     }
     ;------------------------------------------------------------------------------
     showAlertMessage( title, message )

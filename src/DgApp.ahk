@@ -284,7 +284,7 @@ class DgApp extends DgObject
         _Logger.END( A_ThisFunc )
     }
     ;------------------------------------------------------------------------------
-    changeAppVolume( appPID_, deltaVol_ , appName := "")
+    changeAppVolume( appPID_, deltaVol_ , appName_ := "")
     {
         _Logger.BEGIN(  A_ThisFunc )
 
@@ -293,7 +293,7 @@ class DgApp extends DgObject
 
         ;if( currVol > epsilon ) { ; to show mute symbole if currVol is already in min (deprecated)
           
-            this.ui.showVolumeTip( currVol, enumColor.AppVolTip, appName)
+            this.ui.showVolumeTip( currVol, enumColor.AppVolTip, appName_)
         ;} else { ; show mute symbole 
         ;    this.ui.showInfoTip( enumUnicode.Mute ,  enumColor.LedWarn )
         ;}
@@ -576,6 +576,12 @@ class DgApp extends DgObject
                 this.audio.sounds.Start.play()
             }
         }
+    }
+    ;------------------------------------------------------------------------------
+    setActiveLanguage( languageName_ ) 
+    {
+        this.ui.setActiveLanguage( languageName_ )
+        this.ui.updateActiveLanguageMenu( languageName_ , showInfoMessage := true) 
     }
     ;------------------------------------------------------------------------------
     toggleHotkeyActionGroup( groupName_ ) ; enable/disable hotkeys action groups as defined in hotkeys config file

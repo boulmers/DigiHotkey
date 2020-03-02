@@ -21,7 +21,7 @@ This project can be used both as productivity helper and as an educational proje
 -   Mindfulness reminder.
 -   Insomnia mode (keeps *OS* form going to sleep)
 -   Quickly switch power plan.
--   Customizable Languages
+-   Easy localization
 -   No backdoors or key loggers.
 
 ### Platform
@@ -30,12 +30,12 @@ This project can be used both as productivity helper and as an educational proje
 
 ### Configuration files
 
--   `config\actions.json` : Actions and triggering Hotkeys
--   `config\audio.json`: Sound Profiles
--   `config\config.json`: General configuration file
--   `config\hotstrings.json` : Hot strings
--   `config\keyboard_US.json` ( mean to be read only configuration file)
--   `config\lang.json` : (read only localization configuration file)
+-   `config\actions.json` : Actions and hotkeys.
+-   `config\audio.json`: Sound profiles.
+-   `config\config.json`: General configuration file.
+-   `config\hotstrings.json` : Hot strings.
+-   `config\keyboard_US.json` ( read only configuration file)
+-   `config\lang.json` : (read only localization file)
 
 ### Executing & Compiling
 
@@ -60,8 +60,8 @@ Consult <https://www.autohotkey.com/docs/Scripts.htm#ahk2exe>
 -   All included sounds are a copyrighted material. I did include them for an illustrative and educational purposes.
 -   Many sounds have been recorded and processed by myself under CC license, I will list them if necessary. Many other CC licensed sounds have been heavily processed.
 -   Ensure you have the rights to use proprietary sounds for other than educational purposes.
--   All third party libraries are open sourced and located in the `/lib` folder
--   This project uses the [BASS audio library](https://www.un4seen.com/) for audio rendering
+-   All third party libraries are open sourced and located in the `/lib` folder.
+-   This project uses the [BASS audio library](https://www.un4seen.com/) for audio rendering.
 
 License
 -------

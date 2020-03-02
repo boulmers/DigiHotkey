@@ -28,7 +28,7 @@ class DgConfig extends DgPersistent
         ; DgAudio member
         this.volume                     := 10
         this.soundProfile               := "Default"
-        this.language                   := "English"
+        this.languageName               := "English"
 
         this.actionGroups               := {}
         ; note that actionGroups here is a map strucure holding objects with enbabled as the only property
@@ -53,6 +53,7 @@ class DgConfig extends DgPersistent
 
         _App.ui.capsLockAlertEnabled        := this.capsLockAlertEnabled
         _App.ui.numLockAlertEnabled         := this.numLockAlertEnabled
+        _App.ui.languageName                := this.languageName
 
         _Logger.END( A_ThisFunc)
     }
@@ -60,6 +61,7 @@ class DgConfig extends DgPersistent
     save()
     {
         _Logger.BEGIN( A_ThisFunc)
+        
 
         this.soundProfile         := _App.audio.soundProfile
         this.volume               := _App.audio.volume
@@ -70,6 +72,9 @@ class DgConfig extends DgPersistent
 
         this.capsLockAlertEnabled := _App.ui.capsLockAlertEnabled
         this.numLockAlertEnabled  := _App.ui.numLockAlertEnabled
+        this.languageName         := _App.ui.languageName
+        
+        _Logger.TRACE( A_ThisFunc, this.languageName)
 
         ;save action groups enabled/disabled sates to config file, see description in the constructor.
         for _, actionGroup in  _App.keyboard.actionGroups {

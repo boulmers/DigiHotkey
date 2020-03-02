@@ -3,12 +3,18 @@
 ; ntf : try notification
 ; msg : message
 ; qst : question
+
+; NOTA: this data structure contain at the same time the active language items and language list (items included)
+; 
 class DgLang extends DgObject
 {
 
     __New()
     {
         this.languages		  		:= {}
+    
+
+        ; in case the configuartion file is lost...
         this.mnuCapsLock     		:= "CapsLock"
         this.mnuDisable      		:= "Disable"
         this.mnuEnable       		:= "Enable"
@@ -22,6 +28,7 @@ class DgLang extends DgObject
         this.mnuLang 				:= "Language"
         this.mnuExit 				:= "Quit"
         this.mnuInsomnia			:= "Insomnia"
+        this.mnuLanguage            := "Language"
 
         this.mnuPower        		:= "Power plan"
         this.mnuDashboard			:= "Dashboard"
@@ -61,6 +68,7 @@ class DgLang extends DgObject
         this.msgInsomniaStop		:= "Insomnia task stopped",
 
         this.msgOneInsomniaTask	     := "Only one insomnia task is possible"
+        this.msgLanguageChange		 := "Changing display language needs restart to take effect"
 
         this.msgQuitApp				:= "See you!"
 
@@ -100,7 +108,7 @@ class DgLang extends DgObject
 
         this.dlgCapsLock 				:= "CapsLock"
         this.dlgNumLock   				:= "NumLock"
-
+    
     }
     ;------------------------------------------------------------------------------
     loadFromJson( jsonFile_ )
@@ -117,8 +125,9 @@ class DgLang extends DgObject
     setLanguage( langName_ )
     {
         if( this.languages.HasKey( langName_ )) {
+            
             language := this.languages[langName_]
-            ObjectCopy( dest := this , source := language )
+            ObjectCopy( dest := this , source := language ) ; copy the child language object to the root object for easy access(?)
 
         } else {
             _Logger.ERROR( A_ThisFunc, "language not found!")

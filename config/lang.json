@@ -3,10 +3,10 @@
 		"mnuCapsLock"           	: "CapsLock",
 		"mnuDisable"            	: "Disable",
 		"mnuEnable"             	: "Enable",
-        "mnuHotkeys"             	: "HotKeys",
-        "mnuAlwaysOn"             : "Always On",
-        "mnuAlwaysOff"            : "Always Off",
-        "mnuAlert"                : "Alert",
+        "mnuHotkeys"             	: "Hotkeys",
+        "mnuAlwaysOn"             	: "Always On",
+        "mnuAlwaysOff"            	: "Always Off",
+        "mnuAlert"                	: "Alert",
 		"mnuReminder"           	: "Reminder",
 		"mnuNumLock"            	: "NumLock",
 		"mnuSound"              	: "Sound profile",
@@ -16,20 +16,22 @@
 		"mnuExit"					: "Quit",
 		"mnuInsert"					: "Insert",
 		"mnuInsomnia"				: "Insomnia",
-
+		"mnuPower"              	: "Power plan",
+		"mnuLanguage"            	: "Language",
 		"lnkDismiss"            	: "Dismiss",
 		"lnkClose" 					:  "Close",
 		"lnkNewTimer"				: "Timer",
 		"lnkNewReminder" 			: "Reminder",
 		"lnkNewInsomnia"			: "Insomnia",
 
-		"mnuPower"              	: "Power plan",
 
-		"msgPowerChanged"	: "Power plan switched to : ",
+		
 
-	    "msgTimerNameExists"  	: "Timer name already exists!",
-		"msgTimerNameInvalid" 	: "Invalid timer name!",
-		"msgTimerNotFound"		: "Timer not found!",
+		"msgPowerChanged"			: "Power plan switched to : ",
+
+	    "msgTimerNameExists"  		: "Timer name already exists!",
+		"msgTimerNameInvalid" 		: "Invalid timer name!",
+		"msgTimerNotFound"			: "Timer not found!",
 
 		"msgTimerStartPrefix" 		: "Timer",
 		"msgTimerStartSuffix" 		: "started.",
@@ -38,47 +40,130 @@
 		"msgTimerDeletePrefix" 		: "Timer",
 		"msgTimerDeleteSuffix" 		: "deleted !",
 
-		"msgReminderStartPrefix" 		: "Reminder",
-		"msgReminderStartSuffix" 		: "started",
+		"msgReminderStartPrefix" 	: "Reminder",
+		"msgReminderStartSuffix" 	: "started",
 
-		"msgReminderDeletePrefix" 		: "Reminder",
-		"msgReminderDeleteSuffix" 		: "deleted !",
+		"msgReminderDeletePrefix" 	: "Reminder",
+		"msgReminderDeleteSuffix" 	: "deleted !",
 
 
 		"msgInsomniaStart" 			: "Insomnia task started",
 		"msgInsomniaStop" 			: "Insomnia task stopped",
 
 
-		"msgOneInsomniaTask"			: "Only one insomnia task is possible",
+		"msgOneInsomniaTask"		: "Only one insomnia task is allowed",
+		"msgLanguageChange"			: "Changing display language needs restart to take effect",
 		"msgQuitApp"				: "See you!",
 
-		"qstTimerDelete"   	: "Delete Timer?",
-		"qstReminderStop"  	: "Stop reminder?",
+		"qstTimerDelete"   			: "Delete Timer?",
+		"qstReminderStop"  			: "Stop reminder?",
 
-		"dlgTime"			: "Time",
-		"dlgInfos"			: "Infos",
-		"dlgTimer" 			: "Timer",
-		"dlgReminder" 		: "Reminder",
+		"dlgTime"					: "Time",
+		"dlgInfos"					: "Infos",
+		"dlgTimer" 					: "Timer",
+		"dlgReminder" 				: "Reminder",
 
-		"dlgDelay"			: "Delay",
-		"dlgOnTime"			: "On time",
-		"dlgHour"			: "hour",
-		"dlgMinute"			: "min",
-		"dlgName"			: "Name",
-		"dlgMessage" 		: "Message",
-		"dlgStart" 			: "Start",
-		"dlgCancel" 		: "Cancel",
+		"dlgDelay"					: "Delay",
+		"dlgOnTime"					: "On time",
+		"dlgHour"					: "hour",
+		"dlgMinute"					: "min",
+		"dlgName"					: "Name",
+		"dlgMessage" 				: "Message",
+		"dlgStart" 					: "Start",
+		"dlgCancel" 				: "Cancel",
 
-		"dlgPeriodic"		: "Periodic",
-		"dlgHourly" 		: "On all hours",
-		"dlgEvery" 		    : "Every",
-		"dlgDuration" 		: "Duration",
+		"dlgPeriodic"				: "Periodic",
+		"dlgHourly" 				: "On all hours",
+		"dlgEvery" 		    		: "Every",
+		"dlgDuration" 				: "Duration",
 
-		"dlgAlwaysOn"		: "Always On",
-		"dlgAlwaysOff" 		: "Always Off",
-		"dlgOn" 			: "On",
-		"dlgOff" 			: "Off",
-		"dlgCapsLock" 		: "CapsLock",
-		"dlgNumLock"   		: "NumLock"
+		"dlgAlwaysOn"				: "Always On",
+		"dlgAlwaysOff" 				: "Always Off",
+		"dlgOn" 					: "On",
+		"dlgOff" 					: "Off",
+		"dlgCapsLock" 				: "CapsLock",
+		"dlgNumLock"   				: "NumLock"
+	},
+	"Français": {
+		"mnuCapsLock"           	: "Ver Maj",
+		"mnuDisable"            	: "Désactiver",
+		"mnuEnable"             	: "Activer",
+        "mnuHotkeys"             	: "Raccourcis",
+        "mnuAlwaysOn"             	: "Toujours allumé",
+        "mnuAlwaysOff"            	: "Toujours éteint",
+        "mnuAlert"                	: "Alerte",
+		"mnuReminder"           	: "Rappel",
+		"mnuNumLock"            	: "Ver Num",
+		"mnuSound"              	: "Profil sonore",
+		"mnuStatus" 			    : "Tableau de bord",
+		"mnuTaskMan" 			    : "Gestionnaire de tâches",
+		"mnuLang" 					: "Langue",
+		"mnuExit"					: "Quitter",
+		"mnuInsert"					: "Insert",
+		"mnuInsomnia"				: "Insomnie",
+		"mnuPower"              	: "Profile d'alimentation",
+		"mnuLanguage"            	: "Langue",
+
+		"lnkDismiss"            	: "Renvoi",
+		"lnkClose" 					: "Fermer",
+		"lnkNewTimer"				: "Minuterie",
+		"lnkNewReminder" 			: "Rappel",
+		"lnkNewInsomnia"			: "Insomnie",
+
+		"msgPowerChanged"			: "Profile d'alimentation passé à : ",
+
+	    "msgTimerNameExists"  		: "Le nom de la minuteur existe déjà!",
+		"msgTimerNameInvalid" 		: "Nom de la minuteur invalide!",
+		"msgTimerNotFound"			: "Minuterie non trouvé!",
+
+		"msgTimerStartPrefix" 		: "Minuterie",
+		"msgTimerStartSuffix" 		: "démarrée.",
+		
+		
+		"msgTimerDeletePrefix" 		: "Minuterie",
+		"msgTimerDeleteSuffix" 		: "suprimée!",
+
+		"msgReminderStartPrefix" 	: "Rappel",
+		"msgReminderStartSuffix" 	: "démarré",
+
+		"msgReminderDeletePrefix" 	: "Rappel",
+		"msgReminderDeleteSuffix" 	: "suprimé!",
+
+		"msgInsomniaStart" 			: "Tâche d'insomnie demarrée",
+		"msgInsomniaStop" 			: "Tâche d'insomnie arettée",
+
+		"msgOneInsomniaTask"		: "Une seule tâche d'insomnie est permise",
+		"msgLanguageChange"			: "La modification de la langue d'affichage nécessite un redémarrage de l'application pour prendre effet",
+	
+		"msgQuitApp"				: "Au revoir!",
+
+		"qstTimerDelete"   			: "Supprimer minuteur?",
+		"qstReminderStop"  			: "Arrêter rappel?",
+
+		"dlgTime"					: "Temps",
+		"dlgInfos"					: "Infos",
+		"dlgTimer" 					: "Minuteur",
+		"dlgReminder" 				: "Rappel",
+
+		"dlgDelay"					: "Décalage",
+		"dlgOnTime"					: "À temps",
+		"dlgHour"					: "heure",
+		"dlgMinute"					: "min",
+		"dlgName"					: "Nom",
+		"dlgMessage" 				: "Message",
+		"dlgStart" 					: "Démarrer",
+		"dlgCancel" 				: "Annuler",
+			
+		"dlgPeriodic"				: "Periodique",
+		"dlgHourly" 				: "À toutes les heures",
+		"dlgEvery" 		    		: "Chaque",
+		"dlgDuration" 				: "Durée",
+			
+		"dlgAlwaysOn"				: "Toujours allumé",
+		"dlgAlwaysOff" 				: "Toujours éteint",
+		"dlgOn" 					: "Allumé",
+		"dlgOff" 					: "Éteint",
+		"dlgCapsLock" 				: "Ver Maj",
+		"dlgNumLock"   				: "Ver Num"
     }
 }

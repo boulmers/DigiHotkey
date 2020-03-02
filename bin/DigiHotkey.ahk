@@ -11,7 +11,7 @@
 #MenuMaskKey vkFF
 #NoEnv
 
-SetBatchLines -1    ; never sleep for performance
+SetBatchLines -1    ; never micro-sleep for performance
 
 ;==============================================================================
 #include %A_ScriptDir%\..\lib\json.ahk
@@ -92,7 +92,7 @@ subMain:
 
     _App.ui.createDialogs()
     
-    ;t2 := _PerfCounter.stop()
+    ;t2 := _PerfCounter.stop()  
 
     ;_Logger.TRACE( "subMain", "t1_", t1, "t2_", t2 )
 
