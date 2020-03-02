@@ -22,7 +22,7 @@ This project can be used both as an educational project in windows automation us
 -   Insomnia mode (keeps *OS* form going to sleep)
 -   Quickly switch power plan.
 -   Customizable Languages
--   No backdoors or key loggers.
+-   No backdoor or key logger.
 
 ### Platform
 
@@ -49,11 +49,15 @@ Consult <https://www.autohotkey.com/docs/Scripts.htm#ahk2exe>
 
 1.  User documentation.
 2.  Config files documentation.
-3.  Localize to French language.
-4.  Add UI interface to Language selection.
+3.  ~~Localize to French language~~.
+4.  ~~Add UI interface to Language selection~~.
 5.  Display keyboard *CapsLock* and *NumLock* status icon in the notification area.
 6.  Add robust error handling functionality.
 7.  ...
+
+### Known issues
+1. Sounds not properly playing after computer sleep recovery
+2. 
 
 ### Credits & Copyrights
 
