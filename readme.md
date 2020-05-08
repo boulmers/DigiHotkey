@@ -2,7 +2,7 @@ Personal and keyboard oriented productivity tools.
 
 ### Getting Started
 
-This project can be used both as an educational project in windows automation using [*AutoHotkey*](https://www.autohotkey.com/)
+This project can be used both as an educational project in windows automation and a base for personal productivity tools using [*AutoHotkey*](https://www.autohotkey.com/)
 
 ### Prerequisites
 
