@@ -6,7 +6,7 @@ This project can be used both as an educational project in windows automation an
 
 ### Prerequisites
 
-*AutoHotkey* (Unicode version 1.1.30 or later)
+*AutoHotkey* (Unicode *32bits* )
 
 ### Features
 
