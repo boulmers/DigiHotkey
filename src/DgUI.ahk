@@ -21,10 +21,13 @@ class DgUI extends DgObject
         _Logger.BEGIN(  A_ThisFunc )
         
         this.mTray := new DgMenu( { name: "Tray"} )     ; contructed without childern to show the icon early. children will be added later in this method
-        this.mTray.setIcon( A_WorkingDir . "/FR.ICO")
+        iconFile := PathCombine( A_WorkingDir,  "..\img\DigiHotkey.ico")
+        this.mTray.setIcon( iconFile )
 
         this.lang              := new DgLang()
-        this.lang.loadFromJson( "..\config\lang.json" )
+
+        
+        this.lang.loadFromJson( _appDataFolder . "\lang.json" )
         this.setActiveLanguage( _App.config.languageName )
       
         mSeparator              := new DgMenu( { name: "-"})

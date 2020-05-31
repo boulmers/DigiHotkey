@@ -19,12 +19,12 @@ SetBatchLines -1    ; never micro-sleep for performance
 #Include %A_ScriptDir%\..\lib\VA.ahk
 #include %A_ScriptDir%\..\lib\RHotKey.ahk
 
-/*
+
 #include %A_ScriptDir%\..\src\DgInsomniaDialog.ahk
 #include %A_ScriptDir%\..\src\DgTimerDialog.ahk
 #include %A_ScriptDir%\..\src\DgReminderDialog.ahk
 #include %A_ScriptDir%\..\src\DgTaskManDialog.ahk
-*/
+
 
 #include %A_ScriptDir%\..\src\DgObject.ahk
 #include %A_ScriptDir%\..\src\DgLogger.ahk
@@ -70,15 +70,25 @@ subMain:
 
     ListLines Off                                                                                                       ; disable ListLines which is equivalent to selecting the "View->Lines most recently executed" => peformance optimization after debug
    ; Process, Priority, , H
-
-    global _Logger      := new DgLogger( A_WorkingDir . "\DigiHotkey.log")
+   
+   global _appDataFolder := A_AppData . "\DigiHotkey"
+   attrib := FileExist( appDataFolder)
+   if( ! attrib ) {
+         FileCreateDir, % appDataFolder
+   }
+  
+    global _Logger      := new DgLogger( appDataFolder . "\DigiHotkey.log")
 
     global _PerfCounter := new DgPerfCounter()
 
     _Logger.logBEGIN    := true
     _Logger.logEND      := true
 
-    _Logger.BEGIN( "subMain" )                                                                                          ; Ensures a consistent starting directory.
+    _Logger.BEGIN( "subMain" )           
+
+ ahk64Bits := IsAhk64bit()
+    
+    _Logger.TRACE( "AHK version", A_AhkVersion, "IsAhk64", ahk64Bits )                                                                               ; Ensures a consistent starting directory.
 
     SendMode Input                                                                                                      ; Better  speed
 
@@ -98,18 +108,21 @@ subMain:
 
     OnExit( "OnExitApp" ) ; set up exit callback
 
+    SetBatchLines, 10ms ; return to default speed settings
+
     _Logger.END( "subMain" )
 
 return
 
-;/*
+/*
 #include %A_ScriptDir%\..\src\DgTaskManDialog.ahk
 #include %A_ScriptDir%\..\src\DgInsomniaDialog.ahk
 #include %A_ScriptDir%\..\src\DgTimerDialog.ahk
 #include %A_ScriptDir%\..\src\DgReminderDialog.ahk
-;*/
+*/
 
 
 
-SetBatchLines, 10ms ; return to default speed settings
+
 ; EOF
+    

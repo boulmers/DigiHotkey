@@ -53,7 +53,8 @@ Consult <https://www.autohotkey.com/docs/Scripts.htm#ahk2exe>
 4.  ~~Add UI interface to Language selection~~.
 5.  Display keyboard *CapsLock* and *NumLock* status icon in the notification area.
 6.  Add robust error handling functionality.
-7.  ...
+7.  Fix sounds not properly playing after computer sleep recovery
+8.  ...
 
 ### Known issues
 1. Sounds not properly playing after computer sleep recovery
@@ -70,4 +71,4 @@ Consult <https://www.autohotkey.com/docs/Scripts.htm#ahk2exe>
 License
 -------
 
-This project is licensed under the GPL License
+This project is licensed under the MIT License

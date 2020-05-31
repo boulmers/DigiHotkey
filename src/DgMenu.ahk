@@ -12,7 +12,7 @@
 
     global _Logger      := new DgLogger( A_WorkingDir . "\DgMenu.log")
 
-    iconFile            := A_WorkingDir . "\FR.ICO"
+    iconFile            := A_WorkingDir . "\DigiHotkey.ICO"
 
     separator           := new DgMenu(  { name: "-" })
     fileNewProjectMenu  := new DgMenu(  { name: "fileNewProjectMenu",  caption: "New Project",    func: Func("OnMenu_File_New_Project_Click").Bind( 77) , checked: true} )

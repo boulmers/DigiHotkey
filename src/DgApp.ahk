@@ -10,7 +10,7 @@ class DgApp extends DgObject
         this.name           := "DigiHotkey"
         this.regKey         := "HKEY_CURRENT_USER\SOFTWARE\" . this.name
 
-        this.config         := new DgConfig( jsonFile := "..\config\config.json" )
+        this.config         := new DgConfig( jsonFile := _appDataFolder . "\config.json" )
 
         this.audio          := new DgAudio(this.PID)
         this.powerMan       := new DgPowerMan()

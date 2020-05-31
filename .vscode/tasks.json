@@ -1,0 +1,15 @@
+{
+  "command": "ISCC.exe",
+  "version": "1.3.0",
+  "args": [
+    "${file}"
+  ],
+  "isShellCommand": false,
+  "showOutput": "always",
+  "suppressTaskName": true,
+  "echoCommand": false,
+  "group": {
+    "kind": "build",
+    "isDefault": true
+  }
+}

@@ -19,9 +19,9 @@ class DgKeyboard extends DgPersistent
         this.insKeyEnabled			:= true
 
         this.insToggled     		:= true
-        this.layoutConfigFile		:= "..\config\Keyborad_US.json"
-        this.actionsConfigFile		:= "..\config\Actions.json"
-        this.hotstringsConfigFile	:= "..\config\HotStrings.json"
+        this.layoutConfigFile		:= _appDataFolder . "\Keyborad_US.json"
+        this.actionsConfigFile		:= _appDataFolder . "\Actions.json"
+        this.hotstringsConfigFile	:= _appDataFolder . "\HotStrings.json"
     }
     ;------------------------------------------------------------------------------
     init()
