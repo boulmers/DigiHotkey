@@ -29,6 +29,7 @@ class DgLang extends DgObject
         this.mnuExit 				:= "Quit"
         this.mnuInsomnia			:= "Insomnia"
         this.mnuLanguage            := "Language"
+        this.mnuAbout               := "About"
 
         this.mnuPower        		:= "Power plan"
         this.mnuDashboard			:= "Dashboard"

@@ -50,6 +50,9 @@ class DgLogger
             }
         }
 
+        /* MsgBox % fileName_ 
+        */
+        
         file := FileOpen( this.fileName, "a `r`n")
 
         if ( ! file ) {

@@ -529,6 +529,11 @@ class DgApp extends DgObject
         }
     }
     ;------------------------------------------------------------------------------
+    showAboutBox() 
+    { 
+        this.ui.showAboutBox()
+    }
+    ;------------------------------------------------------------------------------
     removeTimerConfirm( timerName_ )   
     {
         timerTask := this.taskMan.getTaskByName( timerName_ )

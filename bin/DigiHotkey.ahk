@@ -24,6 +24,7 @@ SetBatchLines -1    ; never micro-sleep for performance
 #include %A_ScriptDir%\..\src\DgTimerDialog.ahk
 #include %A_ScriptDir%\..\src\DgReminderDialog.ahk
 #include %A_ScriptDir%\..\src\DgTaskManDialog.ahk
+#include %A_ScriptDir%\..\src\DgAboutDialog.ahk
 
 
 #include %A_ScriptDir%\..\src\DgObject.ahk
@@ -72,12 +73,12 @@ subMain:
    ; Process, Priority, , H
    
    global _appDataFolder := A_AppData . "\DigiHotkey"
-   attrib := FileExist( appDataFolder)
-   if( ! attrib ) {
-         FileCreateDir, % appDataFolder
+
+   if( ! FileExist( _appDataFolder) ) {
+         FileCreateDir, % _appDataFolder
    }
   
-    global _Logger      := new DgLogger( appDataFolder . "\DigiHotkey.log")
+    global _Logger      := new DgLogger( _appDataFolder . "\DigiHotkey.log")
 
     global _PerfCounter := new DgPerfCounter()
 
@@ -86,7 +87,7 @@ subMain:
 
     _Logger.BEGIN( "subMain" )           
 
- ahk64Bits := IsAhk64bit()
+   ahk64Bits := IsAhk64bit()
     
     _Logger.TRACE( "AHK version", A_AhkVersion, "IsAhk64", ahk64Bits )                                                                               ; Ensures a consistent starting directory.
 
@@ -113,13 +114,6 @@ subMain:
     _Logger.END( "subMain" )
 
 return
-
-/*
-#include %A_ScriptDir%\..\src\DgTaskManDialog.ahk
-#include %A_ScriptDir%\..\src\DgInsomniaDialog.ahk
-#include %A_ScriptDir%\..\src\DgTimerDialog.ahk
-#include %A_ScriptDir%\..\src\DgReminderDialog.ahk
-*/
 
 
 

@@ -19,7 +19,7 @@ class DgAudio extends DgObject
         this.soundProfile   := enumSoundProfile.Modern
         this.masterVolume   := VA_GetMasterVolume()
         this.volume         := this.getAppVolume( myPID_ )
-        this.profilesConfigFile :=  "..\config\Audio.json"
+        this.profilesConfigFile :=  _appDataFolder . "\Audio.json"
 
         _Logger.END( A_ThisFunc )
     }

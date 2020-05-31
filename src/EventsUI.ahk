@@ -124,6 +124,15 @@ OnMenu_Insomnia()
     _Logger.END( A_ThisFunc )
 }
 ;==============================================================================
+OnMenu_About()
+{
+    _Logger.BEGIN( A_ThisFunc )
+    
+    _App.showAboutBox()
+
+    _Logger.END( A_ThisFunc )
+}
+;==============================================================================
 OnMenu_Exit()
 {
     ExitApp

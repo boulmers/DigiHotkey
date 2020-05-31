@@ -23,19 +23,19 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 ;Name: startup; Description: "Automatically start on login"; GroupDescription: "{cm:AdditionalIcons}"
 
 [Files]
-Source: "..\bin\DigiHotkey.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\bass.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\DigiHotkey.exe"; DestDir: "{app}\bin"; Flags: ignoreversion
+Source: "..\bin\bass.dll"; DestDir: "{app}\bin"; Flags: ignoreversion
 Source: "..\config\*"; DestDir: "{userappdata}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "..\bin\*"; DestDir: "{app}\bin"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\audio\*"; DestDir: "{app}\audio"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\img\*"; DestDir: "{app}\img"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\DigiHotKey"; Filename: "{app}\DigiHotkey.exe"
-Name: "{commondesktop}\DigiHotKey"; Filename: "{app}\DigiHotkey.exe"; Tasks: desktopicon
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\DigiHotKey"; Filename: "{app}\DigiHotkey.exe"; Tasks: quicklaunchicon
+Name: "{group}\DigiHotKey"; Filename: "{app}\bin\DigiHotkey.exe"
+Name: "{commondesktop}\DigiHotKey"; Filename: "{app}\bin\DigiHotkey.exe"; Tasks: desktopicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\DigiHotKey"; Filename: "{app}\bin\DigiHotkey.exe"; Tasks: quicklaunchicon
 
 [Run]
-Filename: "{app}\DigiHotkey.exe"; Description: "{cm:LaunchProgram,DigiHotKey}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\bin\DigiHotkey.exe"; Description: "{cm:LaunchProgram,DigiHotKey}"; Flags: nowait postinstall skipifsilent

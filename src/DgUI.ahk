@@ -55,6 +55,7 @@ class DgUI extends DgObject
         this.mActionGroups  := new DgMenu( { name: "ActionGroups",  caption: this.lang.mnuHotkeys  } )
         this.miInsomnia     := new DgMenu( { name: "Insomnia", caption: this.lang.mnuInsomnia, func: Func("OnMenu_Insomnia")})
         this.mLanguage      :=  new DgMenu( { name: "Language", caption: this.lang.mnuLanguage})
+        this.mAbout         :=  new DgMenu( { name: "About", caption: this.lang.mnuAbout, func: Func("OnMenu_About")})
 
 
         for profileName, powerProfile in _App.powerMan {
@@ -82,7 +83,7 @@ class DgUI extends DgObject
             this.mLanguage.addItem( item )
         }
 
-        menuItems :=  [ this.mActionGroups, this.miInsomnia, this.mSound, this.mPower, this.miInsert, this.mNumLock, this.mCapsLock, this.mTaskMan,this.mLanguage, this.mExit]
+        menuItems :=  [ this.mActionGroups, this.miInsomnia, this.mSound, this.mPower, this.miInsert, this.mNumLock, this.mCapsLock, this.mTaskMan,this.mLanguage, this.mExit, this.mAbout]
 
         for _, menuItem in menuItems {
             this.mTray.addItem( menuItem )
@@ -135,6 +136,7 @@ class DgUI extends DgObject
         this.dlgReminder := new DgReminderDialog()
         this.dlgTaskMan  := new DgTaskManDialog()
         this.dlgInsomnia := new DgInsomniaDialog()
+        this.dlgAbout    := new DgAboutDialog()
         
         _Logger.END(  A_ThisFunc )
     }    
@@ -228,6 +230,12 @@ class DgUI extends DgObject
         message :=  task_.message
 
         task_.uiElements.timerNotification.show( title , message )
+    }
+    ;------------------------------------------------------------------------------
+    showAboutBox() 
+    {
+        SoundBeep
+        this.dlgAbout.show()
     }
     ;------------------------------------------------------------------------------
     addTask( task_ )
