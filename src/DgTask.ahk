@@ -4,8 +4,6 @@ class DgTask extends DgObject
     {
         _Logger.BEGIN( A_ThisFunc)
         
-        ;_Logger.TRACE( "name_", name_, "callback_", callback_, "dueTime_", dueTime_, "periodSec_" , periodSec_ , "repeatCount_", repeatCount_)
-
         this.name 		 		:= name_
         this.repeatCount 		:= repeatCount_
         ; NOTE : any callback should have a task as first parameter; see execute method
@@ -27,8 +25,6 @@ class DgTask extends DgObject
         this.type				:= ""
 
         this.computeDueTimes()
-
-        ;_Logger.TRACE( A_ThisFunc,  "this.dueTimes",  this.dueTimes )
 
         _Logger.END( A_ThisFunc )
     }
@@ -107,7 +103,6 @@ class DgTask extends DgObject
 
         remainingCount := this.dueTimes.Count() ;- this.exeCount
 
-        ;_Logger.TRACE( A_ThisFunc, "timeDiff", timeDiff, "dueTimes", this.dueTimes  )
 
         Loop, % remainingCount
         {
@@ -118,7 +113,6 @@ class DgTask extends DgObject
 
         this.startTime := A_Now ; so as remaining time progress still remain consistant
 
-        ;_Logger.TRACE( A_ThisFunc, "timeDiff", timeDiff,  "dueTimes", this.dueTimes  )
         _Logger.END( A_ThisFunc )
     }
     ;------------------------------------------------------------------------------
@@ -142,8 +136,6 @@ class DgTask extends DgObject
         this.remainingTime := dueTime
         this.remainingTime := ( this.remainingTime > 0 ) ? this.remainingTime : 0 																	; ensure a positive remainingTime as it still may be displayed on the dashboard
 
-        ;_Logger.TRACE( A_ThisFunc, "now", now, "dueTime", dueTime, "remainingTime",  this.remainingTime )
-
         _Logger.END( A_ThisFunc )
 
         return  this.remainingTime
@@ -160,7 +152,6 @@ class DgTask extends DgObject
         totalTime 	:= dueTime
         totalTime 	-= this.startTime, Seconds
 
-        ;_Logger.TRACE( A_ThisFunc,  "lastDueTime",  lastDueTime, "totalTime",totalTime )
         return totalTime
     }
 }

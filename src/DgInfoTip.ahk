@@ -73,7 +73,6 @@ class DgInfoTip
     ;------------------------------------------------------------------------------
     show( animate_ := true ) ; if message is empty, then use texts object to render info tip
     {
-         _Logger.TRACE(A_ThisFunc, "msg_", msg_, "texts", this.texts)
         Critical
 
         DetectHiddenWindows, On
@@ -87,11 +86,8 @@ class DgInfoTip
         this.hWnd   := hWnd
 
         Gui % this.hWnd ": Color", %  this.winColor
-        ;WinSet, TransColor, % winColor,  % "ahk_id" this.hWnd
 
         for _, text in this.texts {
-
-            ;_Logger.TRACE(A_ThisFunc, "text", text )
 
             Gui % this.hWnd ": Font", % " s" text.size " c" text.color " w" text.style, % text.font
 
@@ -118,7 +114,6 @@ class DgInfoTip
 
                 Gui % this.hWnd ": Show", % " X" winCenX " Y" winCenY " W" this.width " H" this.height " NA Hide"
                 w32AnimateWin( this.hWnd, this.fadeDelayTick, this.inAnimation )
-                ;_Logger.TRACE(A_ThisFunc, "fadeDelayTick", this.fadeDelayTick)
 
             } else {
 

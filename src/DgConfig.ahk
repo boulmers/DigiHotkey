@@ -1,36 +1,36 @@
 class DgConfig extends DgPersistent
 {
-    __New( jsonFile_ )
+    __New( configFile_ )
     {
         _Logger.BEGIN( A_ThisFunc)
 
-        this.jsonFile                   := jsonFile_
-        this.timerMaxSnoozeCount        := 5                     ; maximum number of timer Sonoozes
+        this.configFile            := configFile_
+        this.timerMaxSnoozeCount   := 5                     ; maximum number of timer Sonoozes
 
-        this.timerSnoozePeriodSec       := 10
-        this.timerNotifyTimeoutSec      := 5
+        this.timerSnoozePeriodSec  := 10
+        this.timerNotifyTimeoutSec := 5
 
-        this.notifyTipTimeoutSec        := 2
-        this.volumeTipTimeoutSec        := 2                     ; Tick suffix is supposed to be MilliSeconds
-        this.infoTipTimeoutSec          := 2
+        this.notifyTipTimeoutSec   := 2
+        this.volumeTipTimeoutSec   := 2                     ; Tick suffix is supposed to be MilliSeconds
+        this.infoTipTimeoutSec     := 2
 
-        this.insomniaPeriodSec          := 10
+        this.insomniaPeriodSec     := 10
 
         ; Keyboard members
-        this.capsLockBehaviour          := enumLockBehaviour.Free
-        this.numLockBehaviour           := enumLockBehaviour.Free
+        this.capsLockBehaviour     := enumLockBehaviour.Free
+        this.numLockBehaviour      := enumLockBehaviour.Free
 
-        this.capsLockAlertEnabled       := true
-        this.numLockAlertEnabled        := true
+        this.capsLockAlertEnabled  := true
+        this.numLockAlertEnabled   := true
 
-        this.insKeyEnabled              := true
+        this.insKeyEnabled         := true
 
         ; DgAudio member
-        this.volume                     := 10
-        this.soundProfile               := "Default"
-        this.languageName               := "English"
+        this.volume                := 10
+        this.soundProfile          := "Default"
+        this.languageName          := "English"
 
-        this.actionGroups               := {}
+        this.actionGroups          := {}
         ; note that actionGroups here is a map strucure holding objects with enbabled as the only property
 
         _Logger.END( A_ThisFunc)
@@ -41,7 +41,7 @@ class DgConfig extends DgPersistent
     {
         _Logger.BEGIN( A_ThisFunc)
 
-        this.fromJsonFile( this.jsonFile , mergeData := true ) ; mergeData : copy destination data whom keys doesnt exist in source
+        this.fromJsonFile( this.configFile , mergeData := true ) ; mergeData : copy destination data whom keys doesnt exist in source
         this.validate()
 
         _App.audio.soundProfile             := this.soundProfile
@@ -62,7 +62,6 @@ class DgConfig extends DgPersistent
     {
         _Logger.BEGIN( A_ThisFunc)
         
-
         this.soundProfile         := _App.audio.soundProfile
         this.volume               := _App.audio.volume
 
@@ -83,7 +82,7 @@ class DgConfig extends DgPersistent
 
         }
 
-        this.toJsonFile( this.jsonFile )
+        this.toJsonFile( this.configFile )
 
         _Logger.END( A_ThisFunc)
     }

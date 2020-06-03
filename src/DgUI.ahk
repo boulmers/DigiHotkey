@@ -25,9 +25,8 @@ class DgUI extends DgObject
         this.mTray.setIcon( iconFile )
 
         this.lang              := new DgLang()
-
-        
-        this.lang.loadFromJson( _appDataFolder . "\lang.json" )
+        langFile := PathCombine( A_WorkingDir, "..\config\lang.json")
+        this.lang.loadFromJson( langFile )
         this.setActiveLanguage( _App.config.languageName )
       
         mSeparator              := new DgMenu( { name: "-"})
@@ -45,18 +44,22 @@ class DgUI extends DgObject
         this.miNumLockAlwaysOn   := new DgMenu( { name: "NumLockAlwaysOn" , caption: this.lang.mnuAlwaysOn,   func: Func("OnMenu_NumLockAlwaysOn") } )
         this.mNumLock           := new DgMenu( { name: "NumLock",  caption: this.lang.mnuNumLock,  children: [ this.miNumLockAlert, mSeparator, this.miNumLockAlwaysOff, this.miNumLockAlwaysOn] } )
 
-        this.miInsEnable          := new DgMenu( { name: "InsertEnable", caption: this.lang.mnuEnable, func: Func("OnMenu_InsKeyEnable") } )
-        this.miInsDisable      := new DgMenu( { name: "InsertDisable", caption: this.lang.mnuDisable, func: Func("OnMenu_InsKeyDisable") } )
-        this.miInsert           := new DgMenu( { name: "Insert", caption: this.lang.mnuInsert , children: [this.miInsEnable, this.miInsDisable] } )
+        this.miInsEnable    := new DgMenu( { name: "InsertEnable", caption: this.lang.mnuEnable, func: Func("OnMenu_InsKeyEnable") } )
+        this.miInsDisable   := new DgMenu( { name: "InsertDisable", caption: this.lang.mnuDisable, func: Func("OnMenu_InsKeyDisable") } )
+        this.miInsert       := new DgMenu( { name: "Insert", caption: this.lang.mnuInsert , children: [this.miInsEnable, this.miInsDisable] } )
 
-        this.mSound                 := new DgMenu( { name: "Sound",    caption: this.lang.mnuSound } )
+        this.mSound         := new DgMenu( { name: "Sound",    caption: this.lang.mnuSound } )
 
         this.mPower         := new DgMenu( { name: "Power",  caption: this.lang.mnuPower    } )
         this.mActionGroups  := new DgMenu( { name: "ActionGroups",  caption: this.lang.mnuHotkeys  } )
         this.miInsomnia     := new DgMenu( { name: "Insomnia", caption: this.lang.mnuInsomnia, func: Func("OnMenu_Insomnia")})
-        this.mLanguage      :=  new DgMenu( { name: "Language", caption: this.lang.mnuLanguage})
-        this.mAbout         :=  new DgMenu( { name: "About", caption: this.lang.mnuAbout, func: Func("OnMenu_About")})
-
+        this.mLanguage      := new DgMenu( { name: "Language", caption: this.lang.mnuLanguage})
+        
+        
+        this.mSettings      := new DgMenu( { name: "Settings", caption: this.lang.mnuSettings, func: Func("OnMenu_Settings")})
+        this.mAbout         := new DgMenu( { name: "About", caption: this.lang.mnuAbout, func: Func("OnMenu_About")})
+        this.mHelp          := new DgMenu( { name: "Help", caption: this.lang.mnuHelp, func: Func("OnMenu_Help")})
+        this.mTools         := new DgMenu( { name: "Tools", caption: this.lang.mnuTools, children: [this.mSettings, this.mHelp, this.mAbout ]})
 
         for profileName, powerProfile in _App.powerMan {
 
@@ -83,7 +86,7 @@ class DgUI extends DgObject
             this.mLanguage.addItem( item )
         }
 
-        menuItems :=  [ this.mActionGroups, this.miInsomnia, this.mSound, this.mPower, this.miInsert, this.mNumLock, this.mCapsLock, this.mTaskMan,this.mLanguage, this.mExit, this.mAbout]
+        menuItems :=  [ this.mActionGroups, this.miInsomnia, this.mSound, this.mPower, this.miInsert, this.mNumLock, this.mCapsLock, this.mTaskMan,this.mLanguage, this.mExit, this.mTools]
 
         for _, menuItem in menuItems {
             this.mTray.addItem( menuItem )
@@ -168,17 +171,13 @@ class DgUI extends DgObject
 
         _Logger.BEGIN(  A_ThisFunc )
 
-        ;_Logger.TRACE( A_ThisFunc, "Active language", languageName_)
-
         for _, languageMenu in this.mLanguage.children {
 
             if( languageMenu.caption == languageName_ ) {
 
-                ;_Logger.TRACE( A_ThisFunc, "Checked Profile", profileMenu.caption)
                 languageMenu.setChecked( true )
 
             } else {
-                ;_Logger.TRACE( A_ThisFunc, "Unchecked Profile", profileMenu.caption)
                 languageMenu.setChecked( false )
             }
         }
@@ -202,8 +201,6 @@ class DgUI extends DgObject
     showNotification( title , message := "" )
     {
         _Logger.BEGIN( A_ThisFunc )
-
-        ;_Logger.TRACE( A_ThisFunc, message, "message" )
 
         args     := { timeoutSec : _App.config.notifyTipTimeoutSec }
 
@@ -230,12 +227,6 @@ class DgUI extends DgObject
         message :=  task_.message
 
         task_.uiElements.timerNotification.show( title , message )
-    }
-    ;------------------------------------------------------------------------------
-    showAboutBox() 
-    {
-        SoundBeep
-        this.dlgAbout.show()
     }
     ;------------------------------------------------------------------------------
     addTask( task_ )
@@ -267,8 +258,6 @@ class DgUI extends DgObject
     removeTask( task_ )
     {
         _Logger.BEGIN(  A_ThisFunc )
-
-        ;_Logger.TRACE( A_ThisFunc, "task.Type", task_.type )
 
         if( task_.type == enumTaskType.Timer ) {
 
@@ -309,13 +298,10 @@ class DgUI extends DgObject
         
         this.pausedTaskColorSwitch  := ! this.pausedTaskColorSwitch
 
-        ;_Logger.TRACE( A_ThisFunc, "count ", _App.taskMan.tasks.count() )
-
         if( this.dlgTaskMan.isVisible() )
         {
             for name, task in _App.taskMan.tasks {
                 this.updateTaskProgress( task )
-                ; _Logger.TRACE(A_ThisFunc, "name ", task.name )
             }
         }
 
@@ -346,8 +332,6 @@ class DgUI extends DgObject
             remainingTimeProgress :=   100*( 1 - remainingTime / totalTime )
             textColor        :=  enumColor.DarkSlateGray
         }
-
-        ;_Logger.TRACE(A_ThisFunc, "name ", task_.name, "remainingTime", remainingTime )
 
         GuiControl, ,       % task_.uiElements.hProgress , % Round( remainingTimeProgress )
 
@@ -414,8 +398,6 @@ class DgUI extends DgObject
             return
         }
 
-        ;_Logger.TRACE( A_ThisFunc, "bState", bState)
-
         animateLockOn  := ! this.capsLockOffTip.isVisible()
         animateLockOff := ! this.capsLockOnTip.isVisible()
 
@@ -476,8 +458,6 @@ class DgUI extends DgObject
              return
         }
 
-        ;_Logger.TRACE( A_ThisFunc, "bState", bState)
-
         animateLockOn  := ! this.numLockOffTip.isVisible()
         animateLockOff := ! this.numLockOnTip.isVisible()
 
@@ -501,17 +481,13 @@ class DgUI extends DgObject
     {
         _Logger.BEGIN(  A_ThisFunc )
 
-        ;_Logger.TRACE( A_ThisFunc, "Active Profile", profileName_)
-
         for _, profileMenu in this.mSound.children {
 
             if( profileMenu.caption == profileName_ ) {
 
-                ;_Logger.TRACE( A_ThisFunc, "Checked Profile", profileMenu.caption)
                 profileMenu.setChecked( true )
 
             } else {
-                ;_Logger.TRACE( A_ThisFunc, "Unchecked Profile", profileMenu.caption)
                 profileMenu.setChecked( false )
             }
         }
@@ -548,7 +524,6 @@ class DgUI extends DgObject
 
         if( menuItem ) {
             menuItem.setChecked( state_ )
-            ;_Logger.TRACE( A_ThisFunc, "menuItem", menuItem )
         } else {
             _Logger.ERROR( A_ThisFunc, "something went wrong! clicked menuItem was not found!")
         }
@@ -573,7 +548,6 @@ class DgUI extends DgObject
     ;------------------------------------------------------------------------------
     showInfoMessage( title, message )
     {
-        _Logger.TRACE( A_ThisFunc, "showInfoMessage", message)
         options := 0 + 64 + 8192 ; OK + Icon Asterisk (info) + System Modal
         MsgBox,  % options, % title, % message
         

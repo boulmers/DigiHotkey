@@ -133,6 +133,24 @@ OnMenu_About()
     _Logger.END( A_ThisFunc )
 }
 ;==============================================================================
+OnMenu_Settings()
+{
+    _Logger.BEGIN( A_ThisFunc )
+    
+    _App.showSettings()
+
+    _Logger.END( A_ThisFunc )
+}
+;==============================================================================
+OnMenu_Help()
+{
+    _Logger.BEGIN( A_ThisFunc )
+    
+    _App.showHelp()
+
+    _Logger.END( A_ThisFunc )
+}
+;==============================================================================
 OnMenu_Exit()
 {
     ExitApp

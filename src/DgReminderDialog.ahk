@@ -60,7 +60,6 @@ class DgReminderDialog ;extends DgObject
         this.hEditMessage      := 0
 
         this.state              := new DgReminderDialogState()
-        ;_Logger.TRACE( A_ThisFunc, "timeString", timeString )
 
         Gui New, -MinimizeBox -MaximizeBox -SysMenu +AlwaysOnTop +OwnDialogs +Owner   hwndhWnd
         Gui Font, s9, Segoe UI

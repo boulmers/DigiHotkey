@@ -37,8 +37,6 @@ Class DgNotification
         this.destroyCallback  	:= this.destroy.Bind( this , true )
         this.timer 				:= new DgSysTimer( this.destroyCallback, -1000*this.timeoutSec )
 
-        ;_Logger.TRACE( A_ThisFunc, "timeoutSec", this.timeoutSec)
-
     }
     ;------------------------------------------------------------------------------
     __Delete()
@@ -60,15 +58,11 @@ Class DgNotification
         this.hWnd := hWnd
         Gui % this.hWnd ": Color", % this.winColor
 
-        ;_Logger.TRACE( A_ThisFunc, "hWnd", hWnd)
-
         leftM 	:= 10, 		  		textY  	:= 5
         progX 	:= 0, 		  		progY 	:= 0
         progH 	:= 30 ,  ; the title height ( progress bar used here to color the title background for simplicity)
 
         if( message_ ) {
-
-            _Logger.TRACE( A_ThisFunc, "title_", title_, "message_", message_)
 
             Gui, % hWnd ": Add", Progress, % " W" this.width + 2*leftM  " H" progH  " X" progX " Y" progY " C" this.titleBakColor " Range0-100 hwndhProgess", % 100
             Gui % this.hWnd ": Font", % " c" this.titleColor " s" this.titleSize "w" this.titleStyle, % this.font
@@ -107,8 +101,6 @@ Class DgNotification
 
         WinGetPos, winX, winY, winW, winH, % "ahk_id" this.hWnd
         this.height := winH
-        ;_Logger.TRACE( A_ThisFunc, "message_", message_  "winX", winX,  "winY", winY, "winW", winW ,"winH", winH )
-
 
         if ( this.hasCloseBtn ) {
 
@@ -117,7 +109,6 @@ Class DgNotification
             btnX := winW - 3*btnW ,
             btnY := 5,
             btnCol := enumColor.NotifyCloseBtn ;gray
-            ;_Logger.TRACE( A_ThisFunc, "btnX" , btnX ,"btnY", btnY)
 
             Gui % this.hWnd ": Font", c%btnCol% s10 wRegular, Segoe UI	
             Gui % this.hWnd ": Add", Button, % " X" btnX " Y" btnY " W" btnW " H" btnH " hwndhCloseBtn " , % Chr(0x2A09) ; unicode X
@@ -127,7 +118,6 @@ Class DgNotification
 
         WinSet, Region,% "0-0" " W" winW " H" winH  " R" this.cornerRad "-" this.cornerRad, % "ahk_id" this.hWnd
 
-        ;_Logger.TRACE( A_ThisFunc, "winX", winX,  "winY", winY, "winW", winW ,"winH", winH )
 
         if( this.isStackable ) {
             this.stackPush() 													; uses this.height to update stack info
@@ -135,11 +125,6 @@ Class DgNotification
 
         winX := A_ScreenWidth - winW
         winY := A_ScreenHeight - DgNotification.stackHeight - _App.ui.taskbarHeight
-
-        ;_Logger.TRACE( A_ThisFunc, DgNotification.stackHeight, _App.ui.taskbarHeight )
-
-        ;winW := winW > minWinW ? winW : minWinW
-
 
         Gui % this.hWnd ": Show", % " X" winX " Y" winY " NA Hide" ;" H" winH
 
@@ -155,11 +140,9 @@ Class DgNotification
     destroy( animate )
     {
         _Logger.BEGIN(  A_ThisFunc )
-        ;_Logger.TRACE( A_ThisFunc, "hWnd", this.hWnd)
     Critical
 
         if( this.hWnd && WinExist("ahk_id" this.hWnd) ) { 						; test this.hWnd before going further
-            ;_Logger.TRACE( A_ThisFunc, "w32AnimateWin")
 
             if( this.isStackable ) {
                 this.stackPop() 												; uses this.height to update stack info
@@ -178,7 +161,6 @@ Class DgNotification
         DgNotification.stackCount := DgNotification.stackCount + 1
         DgNotification.stackHeight := DgNotification.stackHeight + (this.height + DgNotification.stackPadding)
 
-        ;_Logger.TRACE( A_ThisFunc, "stackHeight", DgNotification.stackHeight)
     }
     ;------------------------------------------------------------------------------
     stackPop()
@@ -191,7 +173,6 @@ Class DgNotification
             DgNotification.stackHeight := DgNotification.stackHeight - (this.height - DgNotification.stackPadding)
         }
 
-        _Logger.TRACE( A_ThisFunc, "stackHeight", DgNotification.stackHeight)
     }
     ;------------------------------------------------------------------------------
     isVisible()

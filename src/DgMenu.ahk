@@ -164,20 +164,13 @@ class DgMenu  extends DgObject
     ;------------------------------------------------------------------------------
     getMenuItemByCaption( caption_ )
     {
-        ;_Logger.TRACE( A_ThisFunc, "caption", caption_ )
-
-
-        ;_Logger.TRACE( A_ThisFunc, "children", this.children )
 
         for i , item in this.children {
-            ;_Logger.TRACE( A_ThisFunc, "itemCaption", item.caption )
 
             if( item.caption == caption_ ) {
                 ret := item
             }
         }
-
-        ;_Logger.TRACE( A_ThisFunc, "ret.caption", ret.caption )
 
         return ret
     }
@@ -188,7 +181,6 @@ class DgMenu  extends DgObject
 
             this.checked := state_
             Menu, % this.parent.name, % this.checked ? "Check" : "Uncheck", % this.caption
-            ;_Logger.TRACE( A_ThisFunc, "Menu ",  this.parent.name ,  this.checked ? "Check" : "Uncheck ",   this.caption )
 
         } else {
             _Logger.ERROR( A_ThisFunc, "Menu " . this.name " cannot be checked/unchecked!" )
@@ -307,7 +299,6 @@ class DgMenu  extends DgObject
                if( child.isSeparator ) {
 
                     Menu, % this.name, Add
-                    ;_Logger.TRACE( A_ThisFunc, "Menu, " this.name ", Add")
 
                } else {
 
@@ -315,7 +306,6 @@ class DgMenu  extends DgObject
 
                     if( child.children.count() > 0 ) {
                         Menu, % this.name, Add, % child.caption, % ":" child.name
-                        ;_Logger.TRACE( A_ThisFunc, "Menu, " this.name ", Add,"  child.caption ", :" child.name )
                     }
                }
             }

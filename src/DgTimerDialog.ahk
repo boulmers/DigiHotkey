@@ -264,7 +264,6 @@ class DgTimerDialog ;extends DgObject
 
         task :=  _App.taskMan.getTaskByName( state.name )
 
-        _Logger.TRACE( A_ThisFunc,"name", state.name, "task",  task )
 
         if( task ) {
             _App.ui.showAlertMessage( _App.name, _App.ui.lang.msgTimerNameExists )
@@ -289,8 +288,6 @@ class DgTimerDialog ;extends DgObject
                 return
             }
         }
-
-        ;_Logger.TRACE( A_ThisFunc, "delayHour", delayHour,"delayMin", delayMin, "delaySec", delaySec, "time", time)
 
         task := _App.createTimerTaskFromDialog( state )
         _App.addTask( task )

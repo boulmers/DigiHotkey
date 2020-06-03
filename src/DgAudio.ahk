@@ -19,7 +19,7 @@ class DgAudio extends DgObject
         this.soundProfile   := enumSoundProfile.Modern
         this.masterVolume   := VA_GetMasterVolume()
         this.volume         := this.getAppVolume( myPID_ )
-        this.profilesConfigFile :=  _appDataFolder . "\Audio.json"
+        this.profilesConfigFile :=  PathCombine( A_WorkingDir, "..\config\Audio.json")
 
         _Logger.END( A_ThisFunc )
     }
@@ -51,7 +51,7 @@ class DgAudio extends DgObject
         this.setActiveSoundProfile( _app.config.soundProfile )
     }
     ;------------------------------------------------------------------------------
-    ; WARNING : helper function to purge audio subdirs. DO NOT CALL until you understand how it wourks.
+    ; WARNING : helper function to purge draft audio files. DO NOT CALL until you understand how it works.
     deleteUnusedFiles() 
     {
         
@@ -95,7 +95,6 @@ class DgAudio extends DgObject
             if( IsObject( val ) && val.__Class = "DgSound" ) {
                 sound := val
                 sound.loadStream()
-                _Logger.TRACE( A_ThisFunc, "fileName", sound.fileName )
             }
         }
 

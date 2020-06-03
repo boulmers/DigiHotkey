@@ -52,7 +52,6 @@ class DgTaskMan extends DgObject
         } else {
 
             this.tasks[task_.name] := task_
-            ;_Logger.TRACE( A_ThisFunc, "task added", "task.dueTime", GetTime(task_.dueTime) )
         }
 
         cnt := this.tasks.Count()
@@ -86,10 +85,8 @@ class DgTaskMan extends DgObject
                 if( ! task.isPaused ) {
 
                     if( task.isDue() ) {
-                        ;_Logger.TRACE( A_ThisFunc, "task.isDue", true,"task.name", task.name)
                         task.execute()
                         if( task.isDone() ) {
-                            ;_Logger.TRACE( A_ThisFunc, "task.isDone", true,"task.name", task.name)
                             _App.removeTask( task ) ; todo : UGLY , refacor later to avoid _App method call here
                         }
                     }

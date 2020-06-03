@@ -1,9 +1,7 @@
 ;BOOL w32FlashWindow(HWND hWnd,BOOL bInvert);
 w32FlashWindow( hWnd, bInvert)
 {
-    _Logger.BEGIN( A_ThisFunc )
-        DllCall( "FlashWindow", UInt, hWnd, Int, bInvert )
-    _Logger.END( A_ThisFunc )
+    DllCall( "FlashWindow", UInt, hWnd, Int, bInvert )
 }
 ;==============================================================================
 /*

@@ -19,9 +19,9 @@ class DgKeyboard extends DgPersistent
         this.insKeyEnabled			:= true
 
         this.insToggled     		:= true
-        this.layoutConfigFile		:= _appDataFolder . "\Keyborad_US.json"
-        this.actionsConfigFile		:= _appDataFolder . "\Actions.json"
-        this.hotstringsConfigFile	:= _appDataFolder . "\HotStrings.json"
+        this.layoutConfigFile		:= PathCombine( A_WorkingDir, "..\config\Keyborad_US.json"  )
+        this.actionsConfigFile		:= PathCombine( A_WorkingDir, "..\config\Actions.json"    )
+        this.hotstringsConfigFile	:= PathCombine( A_WorkingDir, "..\config\HotStrings.json" )
     }
     ;------------------------------------------------------------------------------
     init()
@@ -228,8 +228,7 @@ class DgKeyboard extends DgPersistent
     {
         _Logger.BEGIN( A_ThisFunc )
 
-        ;_Logger.TRACE( A_ThisFunc, "actionGroups", this.actionGroups)
-
+        
         for _, actionGroup in this.actionGroups {
 
             if( actionGroup.enabled ) {  ; perviously  loaded enabled state in this.applyConfig() => don't setup perviously disabled action groups
@@ -242,8 +241,6 @@ class DgKeyboard extends DgPersistent
 
                         ahk := this.getAutoHotkey( digiHotkey )
                         ahk := passThru . ahk
-
-                        ;_Logger.TRACE( A_ThisFunc, "ahk", ahk, "digiHotkey", digiHotkey, "handler", action.handler )
 
                         if( ahk != "~" && ahk != "" ) {
 
@@ -277,7 +274,6 @@ class DgKeyboard extends DgPersistent
     applyConfig()
     {
         ; propagate enabled/disabled to keyboard.actiongroups from config file
-        ;_Logger.TRACE( A_ThisFunc, "_App.config.actionGroups", _App.config.actionGroups )
 
         for name , configActionGroup  in _App.config.actionGroups {
 
@@ -332,8 +328,6 @@ class DgKeyboard extends DgPersistent
             }
 
             ahs := ":" . modifiers . ":" . dhs.hotString
-
-            _Logger.TRACE( A_ThisFunc, "ahs", ahs )
 
             Hotstring( ahs , dhs.replacement )
         }

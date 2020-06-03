@@ -29,6 +29,9 @@ class DgLang extends DgObject
         this.mnuExit 				:= "Quit"
         this.mnuInsomnia			:= "Insomnia"
         this.mnuLanguage            := "Language"
+        this.mnuTools               := "Tools"
+        this.mnuSettings            := "Settings!"
+        this.mnuHelp                := "Help"
         this.mnuAbout               := "About"
 
         this.mnuPower        		:= "Power plan"
@@ -73,16 +76,12 @@ class DgLang extends DgObject
 
         this.msgQuitApp				:= "See you!"
 
-
         this.qstTaskStop   		       := "Stop "
 
-
-
         this.dlgTimer 					:= "Timer"
+        this.dlgAbout                   := "About"
         this.dlgReminder 				:= "Reminder"
         this.dlgInsomnia				:= "Insomnia"
-
-
 
         this.dlgTime					:= "Time"
         this.dlgInfos					:= "Infos"

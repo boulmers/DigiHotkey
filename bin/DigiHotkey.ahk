@@ -58,65 +58,56 @@ SetBatchLines -1    ; never micro-sleep for performance
 #include %A_ScriptDir%\..\src\DgKeyboard.ahk
 
 ;==============================================================================
-; global variables are prefixed with _ sign ie _App
-; function parameters are supposed to be suffixed with _ sign ie name_
-; out variable (by ref) are prefixed with the $ ie $outFile
-
+; global variables are prefixed with _ sign (ex _App )
+; function parameters are supposed to be suffixed with _ sign (ex name_ )
+; out variable (by ref) are prefixed with the $ (ex $outFile )
 ;==============================================================================
 subMain:
 
-   ; OnMessage( enumWinMsg.WM_INPUTLANGCHANGE,  "OnKeyboardLayoutChange")
+      ; OnMessage( enumWinMsg.WM_INPUTLANGCHANGE,  "OnKeyboardLayoutChange")
+      SetWorkingDir % A_ScriptDir
 
-    SetWorkingDir % A_ScriptDir
-
-    ListLines Off                                                                                                       ; disable ListLines which is equivalent to selecting the "View->Lines most recently executed" => peformance optimization after debug
-   ; Process, Priority, , H
+      ListLines Off                                                                                                       ; disable ListLines which is equivalent to selecting the "View->Lines most recently executed" => peformance optimization after debug
+      ; Process, Priority, , H
    
-   global _appDataFolder := A_AppData . "\DigiHotkey"
+      ;global _appDataFolder := A_AppData . "\DigiHotkey"
+      global _dhkVersion    := "0.1.0"
 
-   if( ! FileExist( _appDataFolder) ) {
-         FileCreateDir, % _appDataFolder
-   }
-  
-    global _Logger      := new DgLogger( _appDataFolder . "\DigiHotkey.log")
+      logFile           := PathCombine( A_WorkingDir, "..\config\DigiHotkey.log")
+      global _Logger      := new DgLogger( logFile )
 
-    global _PerfCounter := new DgPerfCounter()
+      global _PerfCounter := new DgPerfCounter()
 
-    _Logger.logBEGIN    := true
-    _Logger.logEND      := true
+      _Logger.logBEGIN    := true
+      _Logger.logEND      := true
 
-    _Logger.BEGIN( "subMain" )           
+      _Logger.BEGIN( "subMain" )           
 
-   ahk64Bits := IsAhk64bit()
+      ahk64Bits := IsAhk64bit()
     
-    _Logger.TRACE( "AHK version", A_AhkVersion, "IsAhk64", ahk64Bits )                                                                               ; Ensures a consistent starting directory.
+      SendMode Input                                                                                                      ; Better  speed
 
-    SendMode Input                                                                                                      ; Better  speed
+      ;_PerfCounter.start()
 
-    ;_PerfCounter.start()
+      global _App    := new DgApp()
 
-    global _App    := new DgApp()
+      ;t1 := _PerfCounter.check()
 
-    ;t1 := _PerfCounter.check()
+      _App.init()
 
-    _App.init()
-
-    _App.ui.createDialogs()
+      _App.ui.createDialogs()
     
-    ;t2 := _PerfCounter.stop()  
+      ;t2 := _PerfCounter.stop()  
 
-    ;_Logger.TRACE( "subMain", "t1_", t1, "t2_", t2 )
+      ;_Logger.TRACE( "subMain", "t1_", t1, "t2_", t2 )
 
-    OnExit( "OnExitApp" ) ; set up exit callback
+      OnExit( "OnExitApp" ) ; set up exit callback
 
-    SetBatchLines, 10ms ; return to default speed settings
+      SetBatchLines, 10ms ; return to default speed settings
 
-    _Logger.END( "subMain" )
+      _Logger.END( "subMain" )
 
 return
-
-
-
 
 ; EOF
     

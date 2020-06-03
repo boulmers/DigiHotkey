@@ -50,7 +50,6 @@ class DgInsomniaDialog ;extends DgObject
         this.hEditDurationMin   := 0
 
         this.state              := new DgInsomniaDialogState()
-        ;_Logger.TRACE( A_ThisFunc, "timeString", timeString )
 
         Gui New, -MinimizeBox -MaximizeBox -SysMenu +AlwaysOnTop +OwnDialogs +Owner   hwndhWnd
         Gui Font, s9, Segoe UI
@@ -146,8 +145,6 @@ class DgInsomniaDialog ;extends DgObject
         state := this.submit()
         task  := _App.taskMan.getTaskByName( state.name )
 
-        ; _Logger.TRACE(A_ThisFunc,"taskName", name, "task",  task)
-
         if( task ) {
             _App.ui.showAlertMessage( _App.name, _App.ui.lang.msgOneInsomniaTask`)
             this.show()
@@ -161,7 +158,6 @@ class DgInsomniaDialog ;extends DgObject
         this.saveState()
         this.hide()
 
-        ;_Logger.TRACE( A_ThisFunc, "task", task )
         _Logger.END(  A_ThisFunc )
     }
     ;------------------------------------------------------------------------

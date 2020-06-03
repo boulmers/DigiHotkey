@@ -18,14 +18,15 @@
 		"mnuInsomnia"				: "Insomnia",
 		"mnuPower"              	: "Power plan",
 		"mnuLanguage"            	: "Language",
+		"mnuTools"					: "Tools",
+		"mnuSettings"      			: "Settings!",
+        "mnuHelp"                	: "Help",
 		"lnkDismiss"            	: "Dismiss",
 		"lnkClose" 					:  "Close",
 		"lnkNewTimer"				: "Timer",
 		"lnkNewReminder" 			: "Reminder",
 		"lnkNewInsomnia"			: "Insomnia",
 
-
-		
 
 		"msgPowerChanged"			: "Power plan switched to : ",
 
@@ -61,7 +62,9 @@
 		"dlgTime"					: "Time",
 		"dlgInfos"					: "Infos",
 		"dlgTimer" 					: "Timer",
+		"dlgAbout"					: "About",
 		"dlgReminder" 				: "Reminder",
+		"dlgInsomnia"               : "Insomnia",
 
 		"dlgDelay"					: "Delay",
 		"dlgOnTime"					: "On time",
@@ -103,6 +106,9 @@
 		"mnuInsomnia"				: "Insomnie",
 		"mnuPower"              	: "Profile d'alimentation",
 		"mnuLanguage"            	: "Langue",
+		"mnuTools"					: "Outils",
+		"mnuSettings"      			: "Réglages!",
+        "mnuHelp"                	: "Aide",
 
 		"lnkDismiss"            	: "Renvoi",
 		"lnkClose" 					: "Fermer",
@@ -129,8 +135,8 @@
 		"msgReminderDeletePrefix" 	: "Rappel",
 		"msgReminderDeleteSuffix" 	: "suprimé!",
 
-		"msgInsomniaStart" 			: "Tâche d'insomnie demarrée",
-		"msgInsomniaStop" 			: "Tâche d'insomnie arettée",
+		"msgInsomniaStart" 			: "Tâche d'insomnie démarrée",
+		"msgInsomniaStop" 			: "Tâche d'insomnie arrêté",
 
 		"msgOneInsomniaTask"		: "Une seule tâche d'insomnie est permise",
 		"msgLanguageChange"			: "La modification de la langue d'affichage nécessite un redémarrage de l'application pour prendre effet",
@@ -143,9 +149,11 @@
 		"dlgTime"					: "Temps",
 		"dlgInfos"					: "Infos",
 		"dlgTimer" 					: "Minuteur",
+		"dlgAbout"					: "À propos",
 		"dlgReminder" 				: "Rappel",
+		"dlgInsomnia"               : "Insomnie",
 
-		"dlgDelay"					: "Décalage",
+		"dlgDelay"					: "Délai",
 		"dlgOnTime"					: "À temps",
 		"dlgHour"					: "heure",
 		"dlgMinute"					: "min",
@@ -155,7 +163,7 @@
 		"dlgCancel" 				: "Annuler",
 			
 		"dlgPeriodic"				: "Periodique",
-		"dlgHourly" 				: "À toutes les heures",
+		"dlgHourly" 				: "Chaque heure",
 		"dlgEvery" 		    		: "Chaque",
 		"dlgDuration" 				: "Durée",
 			

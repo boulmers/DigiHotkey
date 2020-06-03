@@ -10,7 +10,8 @@ class DgApp extends DgObject
         this.name           := "DigiHotkey"
         this.regKey         := "HKEY_CURRENT_USER\SOFTWARE\" . this.name
 
-        this.config         := new DgConfig( jsonFile := _appDataFolder . "\config.json" )
+        configFile          := PathCombine( A_WorkingDir, "..\config\config.json" )
+        this.config         := new DgConfig( configFile )
 
         this.audio          := new DgAudio(this.PID)
         this.powerMan       := new DgPowerMan()
@@ -29,10 +30,12 @@ class DgApp extends DgObject
         this.config.load()      ; load config
         ;t2 := _PerfCounter.check()
         this.audio.init()       ; contains apply config
+
         ;t3 := _PerfCounter.check()
+
         this.keyboard.init() ; contains apply config
         this.ui.init()      ; contains apply config
-        ;this.ui.createDialogs()
+
         ;t5 := _PerfCounter.check()
 
         ;_Logger.TRACE( A_ThisFunc, "t1", t1, "t2", t2, "t3", t3, "t4", t4, "t5", t5, "t6", t6 )
@@ -107,11 +110,7 @@ class DgApp extends DgObject
     {
         _Logger.BEGIN( A_ThisFunc )
 
-        ;_Logger.TRACE( A_ThisFunc )
-
         this.taskMan.removeTask( task_ ) ; was task_ := this.taskMan.removeTask( task_ )
-
-       ;_Logger.TRACE( A_ThisFunc )
 
         this.ui.removeTask( task_ )
 
@@ -126,23 +125,19 @@ class DgApp extends DgObject
         periodSec       := this.config.insomniaPeriodSec
         durationSec     := state_.durationHour*60*60 + state_.durationMin*60
 
-        repeatCount     := ( durationSec > 0) ? ( durationSec // periodSec ) - 1 : 0
+        repeatCount     := ( durationSec > 0 ) ? ( durationSec // periodSec ) - 1 : 0
         repeatCount     := ( repeatCount >= 0 ) ? repeatCount : 0
         
         startTime       := A_Now
         startTime       += periodSec, Seconds
 
-        ;_Logger.TRACE( A_ThisFunc, "startTime", startTime)
-
         name            := state_.name
         callback        := this.preventSystemSleep.bind( this )
         
         task            := new DgTask( name , callback, startTime, periodSec, repeatCount )
-        _Logger.TRACE( A_ThisFunc, "name", name, "startTime", startTime, "periodSec", periodSec, "repeatCount", repeatCount)
+
         task.type       := enumTaskType.Insomnia
         task.isPausable := true
-
-        ;_Logger.TRACE( A_ThisFunc, "task", task )
 
         _Logger.END( A_ThisFunc )
 
@@ -187,7 +182,6 @@ class DgApp extends DgObject
             startTime := year . month . day . hour . min . sec ; hourly Rounded Time
         }
 
-        ;_Logger.TRACE( A_ThisFunc, "startTime", startTime)
 
         name            := state_.name
         callback        := this.notifyReminder.bind( this ) 
@@ -195,8 +189,7 @@ class DgApp extends DgObject
         task.type       := enumTaskType.Reminder
         task.message    := state_.message
         task.isPausable := isPausable
-        
-        ;_Logger.TRACE( A_ThisFunc, "task", task )
+    
 
         _Logger.END( A_ThisFunc )
 
@@ -216,12 +209,11 @@ class DgApp extends DgObject
         dueTime := YYYYMMDD . HH24MI . SS     ; join results to form AHK formatted time
 
         if( state_.delayEnabled ) {
-            ;_Logger.TRACE( A_ThisFunc, "delayEnabled" )
             dueTime         := GetTimeFromNow( delaySec )
             isPausable       := true
 
         } else {  ; timeEnabled
-           ; _Logger.TRACE( A_ThisFunc, "timeEnabled" )
+           
            ;dueTime       := dueTime ( do nothing )
             isPausable       := false
         }
@@ -235,8 +227,6 @@ class DgApp extends DgObject
         task.type       := enumTaskType.Timer
         task.isPausable := isPausable
         task.message    := state_.message
-
-        ;_Logger.TRACE( A_ThisFunc, " task.message",  task.message)
 
         _Logger.END( A_ThisFunc )
 
@@ -443,7 +433,6 @@ class DgApp extends DgObject
     {
         _Logger.BEGIN( A_ThisFunc )
 
-        _Logger.TRACE( A_ThisFunc, "task", task_)
 
         if( task_.type !=  enumTaskType.Reminder ) {
             _Logger.ERROR( A_ThisFunc, "something went wrong, task_.type !=  enumTaskType.Reminder")
@@ -468,7 +457,6 @@ class DgApp extends DgObject
     ;------------------------------------------------------------------------------
     notifyTimer( task_ )
     {
-        _Logger.TRACE( A_ThisFunc, "task_", task_)
 
         if( task_.type !=  enumTaskType.Timer ) {
             _Logger.ERROR( A_ThisFunc, "something went wrong, task_.type !=  enumTaskType.Timer")
@@ -483,7 +471,6 @@ class DgApp extends DgObject
     {
         _Logger.BEGIN( A_ThisFunc )
 
-        _Logger.TRACE( A_ThisFunc, "task_", task_)
         
         if( task_.type !=  enumTaskType.Timer ) {
             _Logger.ERROR( A_ThisFunc, "something went wrong: task_.type !=  enumTaskType.Timer", "task_", task_)
@@ -531,14 +518,23 @@ class DgApp extends DgObject
     ;------------------------------------------------------------------------------
     showAboutBox() 
     { 
-        this.ui.showAboutBox()
+        this.ui.dlgAbout.show()
+    }
+    ;------------------------------------------------------------------------------
+    showSettings() ; actually shows settings folder ! 
+    { 
+        configPath := PathCombine( A_WorkingDir, "..\config")
+        Run, explore %configPath%
+    }
+    ;------------------------------------------------------------------------------
+    showHelp() 
+    { 
+        this.showHelp()
     }
     ;------------------------------------------------------------------------------
     removeTimerConfirm( timerName_ )   
     {
         timerTask := this.taskMan.getTaskByName( timerName_ )
-
-        _Logger.TRACE( A_ThisFunc, "timerName_", timerName_, "timerTask", timerTask )
 
         if( ! timerTask ) {
             this.ui.showAlertMessage( this.name, this.ui.lang.msgTimerNotFound )
@@ -595,8 +591,6 @@ class DgApp extends DgObject
         _Logger.BEGIN( A_ThisFunc )
 
         actionGroup     := this.keyboard.actionGroups[ groupName_ ] ; debug
-
-        _Logger.TRACE( A_ThisFunc,  " enabled before", actionGroup.enabled )
 
         newState    := this.keyboard.toggleHotkeyActionGroup( groupName_ )
 

@@ -5,20 +5,22 @@ class DgAboutDialog ;extends DgObject
     {
         _Logger.BEGIN(A_ThisFunc)
 
-        this.hWnd              := 0
+        Gui, New, -MinimizeBox -MaximizeBox -SysMenu +AlwaysOnTop hwndhWnd
+        this.hWnd   := hWnd
 
-        Gui, New, -MinimizeBox -MaximizeBox -SysMenu +AlwaysOnTop +OwnDialogs +Owner   hwndhWnd
         Gui, Font, s9, Segoe UI
-        Gui, Add, GroupBox, x10     y5      w310    h105,           % "About" ; "Timer"
-        Gui, Add, Text,     x155    y35     w40     h23,            % "DigiHotkey"
+        Gui, Add, GroupBox, X5 Y0 W290  H105, % "" ; "Timer"
+        
+        Gui, Add, Text, X110 Y30 W200 H20 ,  % "DigiHotkey v" . _dhkVersion
+        Gui, Add, Text, X110 Y50 W200 H20 ,  % "boulmers@gmail.com"
+        Gui, Add, Text, X110 Y80 W200 H20 ,  % "MIT License"
+    
         ;_____________________________________________________________________________
-        Gui, Add, Button,    hWndhBtnOK        x180    y235    w80     h25,            % "OK"
+        Gui, Add, Button, x110  y110   w100   h25 hWndhBtnOK,            % "OK"
 
         OnBtnOKClick := this.OnBtnOKClick.bind( this )
 
-        GuiControl +g, %hWndhBtnOK%, % OnBtnOKClick 
-       
-        this.hWnd               := hWnd
+        GuiControl +g, %hBtnOK%, % OnBtnOKClick 
 
         _Logger.END(A_ThisFunc)
     }
@@ -26,18 +28,23 @@ class DgAboutDialog ;extends DgObject
     show()
     {
         _Logger.BEGIN(A_ThisFunc)
+        
+        DetectHiddenWindows, On ; save := true => save
 
         Gui % this.hWnd ": Show" , hide
 
         WinGetPos, winX, winY, winW, winH, % "ahk_id" this.hWnd
 
+       
         if( this.winX < 0 && this.winY < 0 ) {
 
             this.winX := A_ScreenWidth - winW,
             this.winY := A_ScreenHeight  - winH - _App.ui.taskbarHeight
         }
 
-        Gui % this.hWnd ": Show", % "w330 h265" " X" this.winX " Y" this.winY, % _App.ui.lang.dlgTimer
+        Gui % this.hWnd ": Show", % "W300 H145" " X " this.winX " Y " this.winY, % _App.ui.lang.dlgAbout
+
+        DetectHiddenWindows,  Off ; save := false => restore
 
         _Logger.END(A_ThisFunc)
 
@@ -52,7 +59,6 @@ class DgAboutDialog ;extends DgObject
     {
         _Logger.BEGIN(  A_ThisFunc )
 
-        
         this.hide()
 
         _Logger.END( A_ThisFunc )

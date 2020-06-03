@@ -31,7 +31,7 @@ class DgSysTimer
     ;------------------------------------------------------------------------------
     __Delete() ;
     {
-        _Logger.logTRACE( A_ThisFunc)
+        ; _Logger.logTRACE( A_ThisFunc)
     }
 
 }

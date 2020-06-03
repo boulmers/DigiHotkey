@@ -42,17 +42,10 @@ class DgTaskManDialog extends DgObject
 
         Gui, New, +AlwaysOnTop +ToolWindow   hwndhWnd ; +Border
         this.hWnd := hWnd
-
-        OnMessage(0x0010, this.OnCmdClose.Bind(this)) ; 0x0010 = WM_CLOSE 
+        WM_CLOSE := 0x0010 
+        OnMessage(WM_CLOSE, this.OnCmdClose.Bind(this)) 
 
         Gui % this.hWnd ": Color", % this.winColor
-
-        ;Gui % this.hWnd ": Font", % " c" this.titleColor " s10 wBold", % " Segoe UI"
-        ;Gui % this.hWnd ": Add", Text, % " X" leftM " Y" sumY  , % _App.ui.lang.dlgTaskMan                            ; title
-
-        ;WinGetPos, txtX,txtY, txtW, txtH, % "ahk_id" hwndTxt
-
-        ;sumY += 1.0*txtH
 
         Gui % this.hWnd ": Font", % " c" enumColor.DarkSlateGray  " s10 wRegular", % "Segoe UI"
 
@@ -61,8 +54,6 @@ class DgTaskManDialog extends DgObject
             if( task.Type == enumTaskType.Timer || task.Type == enumTaskType.Reminder  || task.Type == enumTaskType.Insomnia ) {
 
                 leftTimeStr := FormatSeconds( task.getRemainingTime() )
-
-                ;_Logger.TRACE( A_ThisFunc, "name", name, "remainingTime", remainingTime, "leftTimeStr", leftTimeStr )
 
                 Gui % this.hWnd ": Add", Text,     % " X" leftM " Y" sumY " W" txtW " H" txtH " +c" this.textColor   "+0x200 +BackgroundTrans hWndhTextName",  % name
 
@@ -95,38 +86,30 @@ class DgTaskManDialog extends DgObject
 
         sumY += 2.0*rowH
 
-        Gui % this.hWnd ": Font",  % " s8 wRegular", % " Segoe UI"
+        Gui % this.hWnd ": Font",  % " s8 wRegular", % "Segoe UI"
 
         newTimerLinkContent := "<a>" . _App.ui.lang.lnkNewTimer . "</a>"
         newTimerLinkCallback := this.OnCmdNewTimer.Bind(this)
         Gui % this.hWnd ": Add", Link, % " X" sumX " Y" sumY " hwndhLink", % newTimerLinkContent
         GuiControl, +g, % hLink, % newTimerLinkCallback
 
-        sumX += 60 ; todo : should be calculated 
+        sumX += 60 ; todo : should be computed 
 
         newReminderLinkContent := "<a>" . _App.ui.lang.lnkNewReminder . "</a>"
         newReminderCallback  := this.OnCmdNewReminder.Bind(this)
         Gui % this.hWnd ": Add", Link, % " X" sumX " Y" sumY " hwndhLink", % newReminderLinkContent
         GuiControl, +g, % hLink, % newReminderCallback
 
-        sumX += 60 ; todo : should be calculated 
+        sumX += 60 ; todo : should be computed 
     
         newInsomniaLinkContent := "<a>" . _App.ui.lang.lnkNewInsomnia . "</a>"
         newInsomniaCallback  :=this.OnCmdNewInsomnia.Bind(this)
         Gui % this.hWnd ": Add", Link, % " X" sumX " Y" sumY " hwndhLink", % newInsomniaLinkContent
         GuiControl, +g, % hLink, % newInsomniaCallback
 
-        /*
-        sumY += 1.0*rowH
-        closeLinkContent := "<a>" . _App.ui.lang.lnkClose . "</a>"
-        closelinkCallback := this.OnCmdClose.Bind(this)
-        Gui % this.hWnd ": Add", Link, % " X" leftM " Y" sumY " hwndhLink", % closeLinkContent
-        GuiControl, +g, % hLink, % closelinkCallback
-        */
-
         minWinW :=  leftM + progW + btnW
 
-        ; added an empty text to ensure a minimun width when there is no elements to show ( todo : fix window not showing at minimu widdth)
+        ; added an empty text to ensure a minimun width when there is no elements to show ( todo : fix window not showing at minimu width)
         Gui % this.hWnd ": Add", Text,     % " X" minWinW  " Y" 0,  % ""
 
         _Logger.END( A_ThisFunc )
@@ -168,8 +151,6 @@ class DgTaskManDialog extends DgObject
             Gui % this.hWnd ": Show", % " X" this.winX " Y" this.winY " NA"
         }
 
-        ;_Logger.TRACE( A_ThisFunc, "hItemA", hItemA, "TxRowsA", TxRowsA, "RowsA", RowsA, "WidthA", WidthA, "HeightA", HeightA, "StyleA",StyleA, "ExStyleA", ExStyleA)
-
         WinSet, Transparent, % this.transparency, % "ahk_id" this.hWnd
 
         _Logger.END( A_ThisFunc )
@@ -206,8 +187,6 @@ class DgTaskManDialog extends DgObject
     ;------------------------------------------------------------------------------
     OnCmdStopTask( task_ )
     {
-        ;_Logger.TRACE( A_ThisFunc , "task_", task_)
-        ;_App.removeTaskConfirm( task_ )
         _App.removeTask( task_ )
     }
     ;------------------------------------------------------------------------------
@@ -250,7 +229,6 @@ class DgTaskManDialog extends DgObject
 
         this.destroy( animate_ := true )
 
-        
         SoundBeep
 
         _Logger.END( A_ThisFunc )

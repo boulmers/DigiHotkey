@@ -18,7 +18,6 @@
 
         this.fileName :=  PathCombine( A_WorkingDir, this.relativeFileName )
 
-        ;_Logger.TRACE( A_ThisFunc, "A_WorkingDir", A_WorkingDir, "relativeFileName", this.relativeFileName, "fileName", this.fileName )
 
         attrib :=  FileExist( this.fileName )
         if ( attrib == "D" or attrib == "") {

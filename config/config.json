@@ -24,10 +24,10 @@
 	},
 	"capsLockAlertEnabled": 1,
 	"capsLockBehaviour": "Free",
+	"configFile": "D:\\My\\dev\\AHK\\DigiHotkey\\config\\config.json",
 	"infoTipTimeoutSec": 2,
 	"insKeyEnabled": 1,
 	"insomniaPeriodSec": 30,
-	"jsonFile": "..\\config\\config.json",
 	"languageName": "English",
 	"notifyTipTimeoutSec": 2,
 	"numLockAlertEnabled": 1,
@@ -36,6 +36,6 @@
 	"timerMaxSnoozeCount": 5,
 	"timerNotifyTimeoutSec": 5,
 	"timerSnoozePeriodSec": 10,
-	"volume": 39.999985,
+	"volume": 74.999993,
 	"volumeTipTimeoutSec": 2
 }
