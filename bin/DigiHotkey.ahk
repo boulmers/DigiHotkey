@@ -65,7 +65,7 @@ Process, Priority, , H
 main:
       SetWorkingDir % A_ScriptDir
 
-      global _dhkVersion    := "0.1.0"
+      global _dhkVersion    := "0.2.0"
 
       logFile             := PathCombine( A_WorkingDir, "..\config\DigiHotkey.log")
       global _Logger      := new DgLogger( logFile )
