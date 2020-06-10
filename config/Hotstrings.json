@@ -3,16 +3,18 @@
         "hotString"             : "btw",
         "replacement"           : "by the way",
         "caseSensitive"         : "1",
-        "requireEndingChar"     : "0",
+        "requireEndingChar"     : "1",
         "requireWholeWord"      : "0",
-        "handler"               : ""
+        "handler"               : "",
+        "enabled"               : "0"
     },
     {
-        "hotString"             : "dhk",
-        "replacement"           : "Digihotkey",
+        "hotString"             : "cad",
+        "replacement"           : "c'est à dire",
         "caseSensitive"         : "1",
         "requireEndingChar"     : "1",
         "requireWholeWord"      : "0",
-        "handler"               : ""
+        "handler"               : "",
+        "enabled"               : "1"
     }
 ]

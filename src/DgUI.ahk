@@ -33,33 +33,34 @@ class DgUI extends DgObject
 
         this.mExit              := new DgMenu( { name: "Exit", caption: this.lang.mnuExit, func: Func("OnMenu_Exit")})
         this.mTaskMan           := new DgMenu( { name: "TaskMan",  caption: this.lang.mnuTaskMan, func: Func("OnMenu_TaskMan") } )
+       
 
         this.miCapsLockAlert     := new DgMenu( { name: "CapsLockAlert",     caption: this.lang.mnuAlert,     func: Func("OnMenu_CapsLockAlert") } )
         this.miCapsLockAlwaysOff := new DgMenu( { name: "CapsLockAlwaysOff", caption: this.lang.mnuAlwaysOff, func: Func("OnMenu_CapsLockAlwaysOff") } )
         this.miCapsLockAlwaysOn  := new DgMenu( { name: "CapsLockAlwaysOn",  caption: this.lang.mnuAlwaysOn,  func: Func("OnMenu_CapsLockAlwaysOn") } )
-        this.mCapsLock          := new DgMenu( { name: "CapsLock", caption: this.lang.mnuCapsLock, children: [ this.miCapsLockAlert, mSeparator, this.miCapsLockAlwaysOff, this.miCapsLockAlwaysOn] } )
+        this.mCapsLock          := new DgMenu( { name: "CapsLock", caption: this.lang.mnuCapsLock, children: [this.miCapsLockAlert, mSeparator, this.miCapsLockAlwaysOff, this.miCapsLockAlwaysOn] } )
 
         this.miNumLockAlert      := new DgMenu( { name: "NumLockAlert"    , caption: this.lang.mnuAlert,      func: Func("OnMenu_NumLockAlert") } )
         this.miNumLockAlwaysOff  := new DgMenu( { name: "NumLockAlwaysOff", caption: this.lang.mnuAlwaysOff,  func: Func("OnMenu_NumLockAlwaysOff") } )
         this.miNumLockAlwaysOn   := new DgMenu( { name: "NumLockAlwaysOn" , caption: this.lang.mnuAlwaysOn,   func: Func("OnMenu_NumLockAlwaysOn") } )
-        this.mNumLock           := new DgMenu( { name: "NumLock",  caption: this.lang.mnuNumLock,  children: [ this.miNumLockAlert, mSeparator, this.miNumLockAlwaysOff, this.miNumLockAlwaysOn] } )
+        this.mNumLock           := new DgMenu( { name: "NumLock",  caption: this.lang.mnuNumLock,  children: [this.miNumLockAlert, mSeparator, this.miNumLockAlwaysOff, this.miNumLockAlwaysOn] } )
 
         this.miInsEnable    := new DgMenu( { name: "InsertEnable", caption: this.lang.mnuEnable, func: Func("OnMenu_InsKeyEnable") } )
         this.miInsDisable   := new DgMenu( { name: "InsertDisable", caption: this.lang.mnuDisable, func: Func("OnMenu_InsKeyDisable") } )
         this.miInsert       := new DgMenu( { name: "Insert", caption: this.lang.mnuInsert , children: [this.miInsEnable, this.miInsDisable] } )
 
-        this.mSound         := new DgMenu( { name: "Sound",    caption: this.lang.mnuSound } )
+        this.mKeyboard         := new DgMenu( { name: "Keyboard",    caption: this.lang.mnuKeyboard, children: [this.mCapsLock, this.mNumLock, this.miInsert] })
+    
+        this.mSound         := new DgMenu( { name: "Sound",    caption: this.lang.mnuSound })
 
-        this.mPower         := new DgMenu( { name: "Power",  caption: this.lang.mnuPower    } )
-        this.mActionGroups  := new DgMenu( { name: "ActionGroups",  caption: this.lang.mnuHotkeys  } )
-        this.miInsomnia     := new DgMenu( { name: "Insomnia", caption: this.lang.mnuInsomnia, func: Func("OnMenu_Insomnia")})
+        this.mPower         := new DgMenu( { name: "Power",  caption: this.lang.mnuPower    })
+        this.mActionGroups  := new DgMenu( { name: "ActionGroups",  caption: this.lang.mnuHotkeys  })
         this.mLanguage      := new DgMenu( { name: "Language", caption: this.lang.mnuLanguage})
-        
         
         this.mSettings      := new DgMenu( { name: "Settings", caption: this.lang.mnuSettings, func: Func("OnMenu_Settings")})
         this.mAbout         := new DgMenu( { name: "About", caption: this.lang.mnuAbout, func: Func("OnMenu_About")})
         this.mHelp          := new DgMenu( { name: "Help", caption: this.lang.mnuHelp, func: Func("OnMenu_Help")})
-        this.mTools         := new DgMenu( { name: "Tools", caption: this.lang.mnuTools, children: [this.mSettings, this.mHelp, this.mAbout ]})
+        this.mTools         := new DgMenu( { name: "Tools", caption: this.lang.mnuTools, children: [this.mLanguage,this.mSettings, this.mHelp, this.mAbout]})
 
         for profileName, powerProfile in _App.powerMan {
 
@@ -86,7 +87,7 @@ class DgUI extends DgObject
             this.mLanguage.addItem( item )
         }
 
-        menuItems :=  [ this.mActionGroups, this.miInsomnia, this.mSound, this.mPower, this.miInsert, this.mNumLock, this.mCapsLock, this.mTaskMan,this.mLanguage, this.mExit, this.mTools]
+        menuItems :=  [ this.mActionGroups, this.mSound, this.mPower, this.mKeyboard, this.mTools, this.mTaskMan, this.mExit ]
 
         for _, menuItem in menuItems {
             this.mTray.addItem( menuItem )

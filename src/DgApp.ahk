@@ -148,7 +148,11 @@ class DgApp extends DgObject
     {
         MouseMove, 1, 1, 0, R  ; simulate a mouse move
         MouseMove, -1, -1, 0, R ; return to original position
-        SoundBeep, 1000, 10 ; todo : remove this test line
+
+        if( _App.config.beepOnInsomnia )
+            SoundBeep, 1000, 10
+
+    
     }
     ;------------------------------------------------------------------------------
     createReminderTaskFromDialog( state_ ) ; simplified facrory
@@ -529,7 +533,8 @@ class DgApp extends DgObject
     ;------------------------------------------------------------------------------
     showHelp() 
     { 
-        this.showHelp()
+        docPath := PathCombine( A_WorkingDir, "..\doc")
+        Run, explore %docPath%
     }
     ;------------------------------------------------------------------------------
     removeTimerConfirm( timerName_ )   

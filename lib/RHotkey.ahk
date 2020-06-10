@@ -24,7 +24,7 @@
 */
 
 ; all methods return false on failure
-Class RHotkey
+Class RHotkey  ; modified Class name by boulmers@gmail.com (R Refers to Runie, original author)
 {
 	static Keys 	:= {} ; keep track of instances
 	static KeyEnabled := {} ; keep track of state of hotkeys

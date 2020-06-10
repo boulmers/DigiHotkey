@@ -115,15 +115,6 @@ OnMenu_TaskMan()
     _Logger.END( A_ThisFunc )
 }
 ;==============================================================================
-OnMenu_Insomnia()
-{
-    _Logger.BEGIN( A_ThisFunc )
-    
-    _App.addNewInsomnia()
-
-    _Logger.END( A_ThisFunc )
-}
-;==============================================================================
 OnMenu_About()
 {
     _Logger.BEGIN( A_ThisFunc )

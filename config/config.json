@@ -1,5 +1,8 @@
 {
 	"actionGroups": {
+		"Caps+Num Lock": {
+			"enabled": 1
+		},
 		"Default": {
 			"enabled": 1
 		},
@@ -22,13 +25,14 @@
 			"enabled": 1
 		}
 	},
+	"beepOnInsomnia": 1,
 	"capsLockAlertEnabled": 1,
 	"capsLockBehaviour": "Free",
 	"configFile": "D:\\My\\dev\\AHK\\DigiHotkey\\config\\config.json",
 	"infoTipTimeoutSec": 2,
 	"insKeyEnabled": 1,
 	"insomniaPeriodSec": 30,
-	"languageName": "English",
+	"languageName": "Fran\u00e7ais",
 	"notifyTipTimeoutSec": 2,
 	"numLockAlertEnabled": 1,
 	"numLockBehaviour": "Free",
@@ -36,6 +40,6 @@
 	"timerMaxSnoozeCount": 5,
 	"timerNotifyTimeoutSec": 5,
 	"timerSnoozePeriodSec": 10,
-	"volume": 74.999993,
+	"volume": 24.999983,
 	"volumeTipTimeoutSec": 2
 }

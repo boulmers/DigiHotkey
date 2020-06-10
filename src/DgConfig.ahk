@@ -29,6 +29,8 @@ class DgConfig extends DgPersistent
         this.volume                := 10
         this.soundProfile          := "Default"
         this.languageName          := "English"
+        
+        this.beepOnInsomnia        := false
 
         this.actionGroups          := {}
         ; note that actionGroups here is a map strucure holding objects with enbabled as the only property
@@ -111,6 +113,8 @@ class DgConfig extends DgPersistent
         ; DgAudio member
         this.volume                     := this.volume                ? this.volume : 10
         this.soundProfile               := this.soundProfile          ? this.soundProfile : enumSoundProfile.Modern
+
+        this.beepOnInsomnia             := this.beepOnInsomnia        ? this.beepOnInsomnia : false
 
         _Logger.END( A_ThisFunc)
     }

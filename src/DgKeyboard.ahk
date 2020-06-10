@@ -9,7 +9,7 @@ class DgKeyboard extends DgPersistent
     {
 
         this.keys    				:= {}
-        this.modifierKeys			:= ["SHIFT","LSHIFT","RSHIFT","CONTROL","LCONTROL","RCONTROL","MENU","LMENU","RMENU","LWIN","RWIN"]
+        this.modifierKeys			:= ["SHIFT","LSHIFT","RSHIFT","CONTROL","LCONTROL","RCONTROL","ALT","LALT","RALT","LWIN","RWIN"]
         this.mandatoryProperties   	:= ["Enabled", "passThrough","Handler","DigiHotkeys"]
         this.actionGroups   		:= {}
 
@@ -228,17 +228,11 @@ class DgKeyboard extends DgPersistent
     {
         _Logger.BEGIN( A_ThisFunc )
 
-        
         for _, actionGroup in this.actionGroups {
-
             if( actionGroup.enabled ) {  ; perviously  loaded enabled state in this.applyConfig() => don't setup perviously disabled action groups
-
                 for __, action in actionGroup.actions {
-
                     passThru 	:= action.passThrough ? "~" : ""
-
                     for i, digiHotkey in action.digiHotkeys {
-
                         ahk := this.getAutoHotkey( digiHotkey )
                         ahk := passThru . ahk
 
@@ -255,14 +249,21 @@ class DgKeyboard extends DgPersistent
                             }
 
                             if( args.Count() > 0) {
-                                callback := Func( action.handler ).Bind( args )
+                                target := Func( action.Handler ).Bind( args )
                             }
                             else {
-                                callback := Func( action.handler )
+                                target := Func( action.Handler )
                             }
+                            /*
+                            Window	- *OPTIONAL* The window the hotkey should be related to
+	                        Type	- *OPTIONAL* What context the hotkey has to the window (Active, Exist, NotActive, NotExist)
+                            */
 
-                            window := action.window ? "ahk_class " . action.window : ""
-                            digiHotkey.rhk := new RHotkey( ahk, callback, window ) ;% autoHotkey, % callback, UseErrorLevel
+                            window := action.Window ? "ahk_class " . action.window : ""
+                            ;window := action.Window
+                            type   := action.Condition ? action.Condition : "Active"
+
+                            digiHotkey.rhk := new RHotkey( ahk, target, window, type ) ;% autoHotkey, % callback, UseErrorLevel
                         }
                     }
                 }
@@ -313,23 +314,26 @@ class DgKeyboard extends DgPersistent
     {
          for _, dhs in this.digiHotstrings {
 
-            modifiers := ""
+            if( dhs.enabled) {
+                
+                modifiers := ""
 
-            if( ! dhs.requireEndingChar ) {
-                modifiers .= "*"
+                if( ! dhs.requireEndingChar ) {
+                    modifiers .= "*"
+                }
+
+                if( ! dhs.requireWholeWord ) {
+                    modifiers .= "?"
+                }
+
+                if(  dhs.caseSensitive ) {  ;dhs.hasKey( "caseSensitive") &&
+                    modifiers .= "c"
+                }
+
+                ahs := ":" . modifiers . ":" . dhs.hotString
+
+                Hotstring( ahs , dhs.replacement )
             }
-
-            if( ! dhs.requireWholeWord ) {
-                modifiers .= "?"
-            }
-
-            if(  dhs.caseSensitive ) {  ;dhs.hasKey( "caseSensitive") &&
-                modifiers .= "c"
-            }
-
-            ahs := ":" . modifiers . ":" . dhs.hotString
-
-            Hotstring( ahs , dhs.replacement )
         }
     }
     ;------------------------------------------------------------------------------

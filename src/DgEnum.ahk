@@ -104,12 +104,13 @@ class enumTimeType extends DgEnum
 ;==============================================================================
 class enumUnicode extends DgEnum
 {
-    static Pause  		:= Chr(0x23F8)
-    static Stop  		:= Chr(0x25fc)
-    static Play 		:= Chr(0x25b6)
+    static Pause  		:= Chr(0x3B) ;Chr(0x23F8)
+    static Stop  		:= Chr(0x3C) ; Chr(0x25fc)
+    static Play 		:= Chr(0x34) ; Chr(0x25b6)
+
     static Mute     	:= Chr(0x1f507) ; 🔇
     static Forbidden 	:= Chr(0x1f6ab) ; 🚫
-    static FullRect  	:= Chr(0x2588)   ; full bloc rect for testing
+    static FullRect  	:= Chr(0x2588)  ; full bloc rect for testing
 }
 ;==============================================================================
 class enumColor extends DgEnum

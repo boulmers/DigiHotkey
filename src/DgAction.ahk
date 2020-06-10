@@ -4,15 +4,15 @@ class DgAction extends DgObject ; action definition
     {
         this.enabled        := true
         this.groupName      := "Default"
-        this.sound          := ""
-        this.handler        := ""
-        this.context        := ""
+        this.Sound          := ""
+        this.Handler        := ""
+        this.Window         := ""
+        this.Condition   := ""
         this.modifiers      := ""
         this.description    := ""
         this.digiHotKeys    := []
     }
 }
-;==============================================================================
 ;==============================================================================
 class DgActionGroup extends DgObject
 {

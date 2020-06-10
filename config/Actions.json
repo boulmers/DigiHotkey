@@ -6,7 +6,7 @@
     "GroupName"     : "Sound",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "Alpha",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Alpha ",
     "DigiHotkeys"   : [
@@ -44,7 +44,7 @@
     "GroupName"     : "Sound",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "ShiftAlpha",
     "DigiHotkeys"   : [
@@ -82,7 +82,7 @@
     "Sound"         : "Number",
     "Handler"       : "OnHotkey_MacroSound",
     "GroupName"     : "Sound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Number",
     "DigiHotkeys"   : [
@@ -104,7 +104,7 @@
     "Sound"         : "Symbol",
     "Handler"       : "OnHotkey_MacroSound",
     "GroupName"     : "Sound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "ShiftedNumber",
     "DigiHotkeys"   : [
@@ -146,7 +146,7 @@
     "Sound"         : "Symbol",
     "Handler"       : "OnHotkey_MacroSound",
     "GroupName"     : "Sound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "NumpadSymbole",
     "DigiHotkeys"   : [ ["MULTIPLY"], ["ADD"], ["SUBTRACT"], ["DIVIDE"], ["NUM_DOT"] ]
@@ -157,7 +157,7 @@
     "Sound"         : "Symbol",
     "Handler"       : "OnHotkey_MacroSound",
     "GroupName"     : "Sound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "OEM",
     "DigiHotkeys"   : [
@@ -182,7 +182,7 @@
     "Sound"         : "Symbol",
     "Handler"       : "OnHotkey_MacroSound",
     "GroupName"     : "Sound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "ShiftedOEM",
     "DigiHotkeys"   : [
@@ -207,7 +207,7 @@
     "Sound"         : "Function",
     "Handler"       : "OnHotkey_MacroSound",
     "GroupName"     : "Sound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Function",
     "DigiHotkeys"   : [ ["F1"], ["F2"],  ["F3"],  ["F4"], ["F5"], ["F6"], ["F7"], ["F8"], ["F9"], ["F10"], ["F11"], ["F12"] ]
@@ -218,7 +218,7 @@
     "GroupName"     : "Sound",
     "Sound"         : "PrintScreen",
     "Handler"       : "OnHotkey_MacroSound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "PrintScreen",
     "DigiHotkeys"   : [ ["SNAPSHOT"] ]
@@ -229,7 +229,7 @@
     "GroupName"     : "Sound",
     "Sound"         : "Tab",
     "Handler"       : "OnHotkey_MacroSound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Tab",
     "DigiHotkeys"   :  [ ["TAB"]  ]
@@ -239,7 +239,7 @@
     "PassThrough"   : "1",
     "GroupName"     : "Sound",
     "Handler"       : "OnHotkey_Esc",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Esc",
     "DigiHotkeys"   : [   ["ESCAPE"]  ]
@@ -250,7 +250,7 @@
     "GroupName"     : "Sound",
     "Sound"         : "Space",
     "Handler"       : "OnHotkey_MacroSound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Space",
     "DigiHotkeys"   :  [  ["SPACE"], ["SHIFT", "SPACE"]  ]
@@ -261,7 +261,7 @@
     "GroupName"     : "Sound",
     "Sound"         : "Enter",
     "Handler"       : "OnHotkey_MacroSound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Enter",
     "DigiHotkeys"   :  [ ["RETURN"], ["SHIFT", "RETURN"], ["CONTROL", "RETURN"] ]
@@ -272,7 +272,7 @@
     "GroupName"     : "Sound",
     "Sound"         : "Backspace",
     "Handler"       : "OnHotkey_MacroSound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Backspace",
     "DigiHotkeys"   :  [ ["BACK"],  ["SHIFT", "BACK"],  ["CONTROL", "BACK"] ]
@@ -283,7 +283,7 @@
     "GroupName"     : "Sound",
     "Sound"         : "Del",
     "Handler"       : "OnHotkey_MacroSound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Delete",
     "DigiHotkeys"   :  [ ["DELETE"], ["SHIFT", "DELETE"], ["CONTROL", "DELETE"], ["NUM_DEL"]   ]
@@ -293,7 +293,7 @@
     "PassThrough"   : "1",
     "GroupName"     : "Sound",
     "Handler"       : "OnHotkey_Insert",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Insert",
     "DigiHotkeys"   : [ ["INSERT"], ["NUM_INS"] ]
@@ -304,7 +304,7 @@
     "GroupName"     : "Sound",
     "Sound"         : "Home",
     "Handler"       : "OnHotkey_MacroSound",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Home",
     "DigiHotkeys"   : [ ["HOME"],  ["NUM_HOME"] ]
@@ -377,10 +377,10 @@
     "GroupName"     : "Sound",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_Dashboard",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"    : "DigiHotkeyDashboard => Display taskmanager",
-    "DigiHotkeys"   : [  ["LCONTROL", "LMENU", "D"]  ]
+    "DigiHotkeys"   : [  ["LCONTROL", "LALT", "D"]  ]
 },
 {
     "Enabled"       : "1",
@@ -388,10 +388,10 @@
     "GroupName"     : "Sound",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_MyAppVolumeUp",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "DigiHotkeyVolume",
-    "DigiHotkeys"   : [  ["LMENU", "UP"]  ]
+    "DigiHotkeys"   : [  ["LALT", "UP"]  ]
 },
 {
     "Enabled"       : "1",
@@ -399,10 +399,10 @@
     "GroupName"     : "Volume control",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_MyAppVolumeDown",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "DigiHotkeyVolDown",
-    "DigiHotkeys"   :  [ ["LMENU", "DOWN"]  ]
+    "DigiHotkeys"   :  [ ["LALT", "DOWN"]  ]
 },
 {
     "Enabled"       : "0",
@@ -410,10 +410,10 @@
     "GroupName"     : "Volume control",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_ActiveAppVolumeUp",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Increase active application volume (mixer function)",
-    "DigiHotkeys"   : [ ["LCONTROL","LMENU", "UP"] ]
+    "DigiHotkeys"   : [ ["LCONTROL","LALT", "UP"] ]
 },
 {
     "Enabled"       : "0",
@@ -421,10 +421,10 @@
     "GroupName"     : "Volume control",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_ActiveAppVolumeDown",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
-    "Description"   : "Decreaser active application volume (mixer function)",
-    "DigiHotkeys"   :  [ ["LCONTROL","LMENU", "DOWN"]  ]
+    "Description"   : "Decrease active application volume (mixer function)",
+    "DigiHotkeys"   :  [ ["LCONTROL","LALT", "DOWN"]  ]
 },
 {
     "Enabled"       : "1",
@@ -432,7 +432,7 @@
     "GroupName"     : "Volume control",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_MasterVolumeUp",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"    : "MasterVolume",
     "DigiHotkeys"   : [ ["LWIN","UP"]   ]
@@ -443,7 +443,7 @@
     "GroupName"     : "Volume control",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_MasterVolumeDown",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "MasterVolDown",
     "DigiHotkeys"   : [ ["LWIN","DOWN"] ]
@@ -453,29 +453,29 @@
     "PassThrough"   : "0",
     "GroupName"     : "Tools",
     "Handler"       : "OnHotkey_AlwaysOnTopEnable",
-    "Context"       : "Notepad",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "AlwaysOnTopEnable",
-    "DigiHotkeys"   : [  ["LMENU", "LCONTROL", "PRIOR"] ]
+    "DigiHotkeys"   : [  ["LALT", "LCONTROL", "PRIOR"] ]
 },
 {
     "Enabled"       : "1",
     "PassThrough"   : "0",
     "GroupName"     : "Tools",
     "Handler"       : "OnHotkey_AlwaysOnTopDisable",
-    "Context"       : "Notepad",
+    "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "AlwaysOnTopDisable",
-    "DigiHotkeys"   : [ ["LMENU", "LCONTROL", "NEXT"] ]
+    "DigiHotkeys"   : [ ["LALT", "LCONTROL", "NEXT"] ]
 },
 {
     "Enabled"       : "1",
     "PassThrough"   : "1",
-    "GroupName"     : "Lock",
+    "GroupName"     : "Caps+Num Lock",
     "Handler"       : "OnHotkey_CapsLock",
-    "Context"       : "",
-    "Modifiers"     : "CapsLock ",
-    "Description"   : "",
+    "Window"       : "",
+    "Modifiers"     : "",
+    "Description"   : "CapsLock",
     "DigiHotkeys"   : [  ["CAPITAL"]  ]
 },
 {
@@ -483,16 +483,16 @@
     "PassThrough"   : "1",
     "GroupName"     : "Tools",
     "Handler"       : "OnHotkey_NumLOck",
-    "Context"       : "",
+    "Window"       : "",
     "Modifiers"     : "",
-    "Description"   : "NumLock ",
+    "Description"   : "NumLock",
     "DigiHotkeys"   :  [ ["NUMLOCK"]   ]
 },
 {
     "Enabled"       : "1",
     "PassThrough"   : "0",
     "Handler"       : "OnHotkey_AppQuit",
-    "Desctiption"   : "App Quit",
+    "Description"   : "App Quit",
     "DigiHotkeys"   :  [ ["LWIN","ESCAPE"]  ]
 },
 {
@@ -501,9 +501,11 @@
     "GroupName"     : "Diacritics",
     "Macro"         : "{U+00E1}",
     "Handler"       : "OnHotkey_MacroSound",
+    "Window"        : "Notepad",
+    "Condition"     : "NotActive",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Lower_A [Left Alt] + [SHIFT] + [A] => ",
-    "DigiHotkeys"   :  [ ["LMENU", "A"]  ]
+    "Description"   : "Accent_Acute_Lower_A [LAlt] + [A] => á ",
+    "DigiHotkeys"   :  [ ["LALT", "A"]  ]
 },
 {
     "Enabled"       : "1",
@@ -512,10 +514,10 @@
     "Macro"         : "{U+00C1}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Upper_A [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Upper_A [Shift] + [LAlt] + [A] => Á ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [  ["LMENU", "SHIFT", "A"]  ]
+    "DigiHotkeys"   :  [  ["SHIFT","LALT",  "A"]  ]
 },
 {
     "Enabled"       : "1",
@@ -524,10 +526,10 @@
     "Macro"         : "{U+00E0}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Lower_A [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Grave_Lower_A [RAlt] + [A] => à ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["RMENU", "A"] ]
+    "DigiHotkeys"   :  [ ["RALT", "A"] ]
 },
 {
     "Enabled"       : "1",
@@ -536,22 +538,22 @@
     "Macro"         : "{U+00C0}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Upper_A [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Grave_Upper_A [Shift] + [RAlt] + [A] => À ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [  ["RMENU", "SHIFT", "A"] ]
+    "DigiHotkeys"   :  [  ["SHIFT","RALT",  "A"] ]
 },
 {
     "Enabled"       : "1",
     "PassThrough"   : "0",
     "GroupName"     : "Diacritics",
-    "Macro"         : "{U+00C0}",
+    "Macro"         : "{U+00E2}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Lower_A [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Lower_A [LAt] + [LWin] + [A] => â",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [  ["LMENU", "LWIN",  "A"]  ]
+    "DigiHotkeys"   :  [  ["LALT", "LWIN",  "A"]  ]
 },
 {
     "Enabled"       : "1",
@@ -560,10 +562,10 @@
     "Macro"         : "{U+00C2}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Upper_A [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Upper_A [Shift] + [LAtl] + [LWin] + [A] => Â ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["LMENU", "LWIN", "SHIFT", "A"] ]
+    "DigiHotkeys"   : [ ["SHIFT","LALT", "LWIN", "A"] ]
 },
 {
     "Enabled"       : "1",
@@ -572,10 +574,10 @@
     "Macro"         : "{U+00E4}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Lower_A [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Lower_A [LCtrl] + [LAlt] + [A] => ä",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["LMENU", "CONTROL",  "A"] ]
+    "DigiHotkeys"   : [ ["LCONTROL", "LALT",  "A"] ]
 },
 {
     "Enabled"       : "1",
@@ -584,10 +586,10 @@
     "Macro"         : "{U+00C4}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Upper_A [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Upper_A [Shift] + [LCtrl] + [LAlt] + [A] => Ä",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "CONTROL", "SHIFT", "A"]   ]
+    "DigiHotkeys"   :  [ ["SHIFT","LCONTROL","LALT", "A"]   ]
 },
 {
     "Enabled"       : "1",
@@ -596,8 +598,8 @@
     "Macro"         : "{U+00E7}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Cedilla_Lower_C [] + [] + [] => ",
-    "DigiHotkeys"    :  [ ["LMENU", "C"] ]
+    "Description"   : "Accent_Cedilla_Lower_C [LAlt] + [C] => ç",
+    "DigiHotkeys"    :  [ ["LALT", "C"] ]
 },
  {
     "Enabled"       : "1",
@@ -606,10 +608,10 @@
     "Macro"         : "{U+00C7}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "vv  [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Cedilla_Upper_C  [Shift] + [LAlt] + [C] => Ç",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "SHIFT", "C"]  ]
+    "DigiHotkeys"   :  [ [ "SHIFT","LALT", "C"]  ]
 },
 {
     "Enabled"       : "1",
@@ -618,10 +620,10 @@
     "Macro"         : "{U+00E9}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Lower_E [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Lower_E [LAlt] + [E] => é",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "E"] ]
+    "DigiHotkeys"   :  [ ["LALT", "E"] ]
 },
 {
     "Enabled"       : "1",
@@ -630,10 +632,10 @@
     "Macro"         : "{U+00C9}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Upper_E [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Upper_E [Shift] + [LAlt] + [E] => É",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["LMENU", "SHIFT", "E"] ]
+    "DigiHotkeys"   : [ ["SHIFT","LALT", "E"] ]
 },
 {
     "Enabled"       : "1",
@@ -642,10 +644,10 @@
     "Macro"         : "{U+00E8}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Lower_E [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Grave_Lower_E [RAlt] + [E] => è",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["RMENU", "E"] ]
+    "DigiHotkeys"   : [ ["RALT", "E"] ]
 },
 {
     "Enabled"     :"1",
@@ -654,8 +656,8 @@
     "Macro"       : "{U+00C8}",
     "Handler"     : "OnHotkey_MacroSound",
     "Sound"       : "ShiftAlpha",
-    "Description" : "Accent_Grave_Upper_E [] + [] + [] => ",
-    "DigiHotkeys" :  [ ["RMENU", "SHIFT", "E"] ]
+    "Description" : "Accent_Grave_Upper_E  [Shift] + [RAlt] + [E] => È ",
+    "DigiHotkeys" :  [ ["SHIFT","RALT", "E"] ]
 },
 {
     "Enabled"     : "1",
@@ -664,8 +666,8 @@
     "Macro"       : "{U+00EA}",
     "Handler"     : "OnHotkey_MacroSound",
     "Sound"       : "ShiftAlpha",
-    "Description" : "Accent_Circumflex_Upper_E [] + [] + [] => ",
-    "DigiHotkeys" :  [ ["LMENU", "LWIN",  "E"] ]
+    "Description" : "Accent_Circumflex_Upper_E [LAlt] + [LWin] + [E] => ê",
+    "DigiHotkeys" :  [ ["LALT", "LWIN",  "E"] ]
 },
 {
     "Enabled"     : "1",
@@ -674,8 +676,8 @@
     "Macro"       : "{U+00CA}",
     "Handler"     : "OnHotkey_MacroSound",
     "Sound"       : "ShiftAlpha",
-    "Description" : " Accent_Circumflex_Upper_E   [] + [] + [] => ",
-    "DigiHotkeys" :  [   ["LMENU", "LWIN", "SHIFT", "E"]  ]
+    "Description" : " Accent_Circumflex_Upper_E   [Shift] + [LAlt] + [LWin] + [E] => Ê",
+    "DigiHotkeys" :  [   ["SHIFT","LALT", "LWIN",  "E"]  ]
 },
 {
     "Enabled"     : "1",
@@ -684,8 +686,8 @@
     "Macro"       : "{U+00EB}",
     "Handler"     : "OnHotkey_MacroSound",
     "Sound"       : "ShiftAlpha",
-    "Description" : "Accent_Dieresis_Lower_E [] + [] + [] => ",
-    "DigiHotkeys" :  [   ["LMENU", "CONTROL",  "E"]   ]
+    "Description" : "Accent_Dieresis_Lower_E [LCtrl] + [LAlt] + [E] => ë",
+    "DigiHotkeys" :  [   ["LALT", "LCONTROL",  "E"]   ]
 },
 {
     "Enabled"       : "1",
@@ -694,10 +696,10 @@
     "Macro"         : "{U+00CB}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Upper_E [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Upper_E [Shift] + [LCtrl] + [LAlt] + [E] =>Ë ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [  ["LMENU", "CONTROL", "SHIFT", "E"]  ]
+    "DigiHotkeys"   :  [  ["SHIFT", "LCONTROL","LALT","E"]  ]
 },
 {
     "Enabled"       : "1",
@@ -706,10 +708,10 @@
     "Macro"         : "{U+00ED}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Lower_I [LMENU, I]  [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Lower_I [LAlt] + [I] => í ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   : [  ["LALT", "I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -718,10 +720,10 @@
     "Macro"         : "{U+00CD}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Upper_I  [LMENU, SHIFT, I] [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Upper_I  [LAlt] + [I]  => Í ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   : [  ["SHIFT","LALT","I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -730,10 +732,10 @@
     "Macro"         : "{U+00EC}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent__Grave_Lower_I[RMENU, I]  [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent__Grave_Lower_I   [RALT] + [I] => ì ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   : [  ["RALT", "I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -742,10 +744,10 @@
     "Macro"         : "{U+00CC}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Upper_I[ [RMENU, SHIFT, I] ] [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Grave_Upper_I   [Shift] + [RAlt] + [I] => Ì",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   : [  ["SHIFT", "RALT", "I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -754,10 +756,10 @@
     "Macro"         : "{U+00EE}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Lower_I [RMENU, LWIN,  I] [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Lower_I   [LAlt] + [LWin] + [I] => î ",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   :  [  ["LALT","LWIN", "I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -766,10 +768,10 @@
     "Macro"         : "{U+00CE}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Upper_I [RMENU, LWIN, SHIFT, I] [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Upper_I [Shift] + [LAlt] + [LWin] + [I] => Î",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   : [  ["SHIFT","LALT","LWIN", "I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -778,10 +780,10 @@
     "Macro"         : "{U+00EF}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Lower_I [LMENU, CONTROL,  I] [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Lower_I  [LCtrl] + [LAlt] + + [I]  => ï",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   : [  ["LCONTROL","LALT", "I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -790,10 +792,10 @@
     "Macro"         : "{U+00CF}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Upper_I [LMENU, CONTROL, SHIFT, I] [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Upper_I [Shift] + [LAlt] + [LCtrl] + [I] => Ï",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : ""
+    "DigiHotkeys"   : [  ["SHIFT", "LCONTROL", "LALT","I"]  ]
 },
 {
     "Enabled"       : "1",
@@ -802,10 +804,10 @@
     "Macro"         : "{U+00F3}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Lower_O [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Lower_O [LAlt] + [O] => ó",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["LMENU", "O"] ]
+    "DigiHotkeys"   : [ ["LALT", "O"] ]
 },
 {
     "Enabled"       : "1",
@@ -814,10 +816,10 @@
     "Macro"         : "{U+00D3}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Upper_O [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Upper_O [Shift] + [LAlt] + [O] => Ó",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "SHIFT", "O"] ]
+    "DigiHotkeys"   :  [ ["SHIFT","LALT", "O"] ]
 },
 {
     "Enabled"       : "1",
@@ -826,10 +828,10 @@
     "Macro"         : "{U+00F2}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Lower_O [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Grave_Lower_O [RAlt] + [O] => ò",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["RMENU", "O"] ]
+    "DigiHotkeys"   :  [ ["RALT", "O"] ]
 },
 {
     "Enabled"       : "1",
@@ -838,8 +840,8 @@
     "Macro"         : "{U+00D2}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Upper_O [] + [] + [] => ",
-    "DigiHotkeys"    : [ ["RMENU", "SHIFT", "O"] ]
+    "Description"   : "Accent_Grave_Upper_O [Shift] + [RAlt] + [O] => Ò",
+    "DigiHotkeys"    : [ ["SHIFT","RALT", "O"] ]
 },
 {
     "Enabled"       : "1",
@@ -848,22 +850,22 @@
     "Macro"         : "{U+00F4}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Lower_O [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Lower_O [LAlt] + [LWin] + [O] => ô",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["RMENU", "LWIN",  "O"] ]
+    "DigiHotkeys"   : [ ["LALT", "LWIN",  "O"] ]
 },
 {
     "Enabled"       : "1",
     "PassThrough"   : "0",
     "GroupName"     : "Diacritics",
-    "Macro"         : "{U+00F4}",
+    "Macro"         : "{U+00D4}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Upper_O [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Upper_O [Shift] + [LAlt] + [LWin] => Ô",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["RMENU", "LWIN", "SHIFT", "O"]]
+    "DigiHotkeys"   : [ [ "SHIFT","LALT", "LWIN",  "O"]]
 },
 {
     "Enabled"       : "1",
@@ -872,22 +874,22 @@
     "Macro"         : "{U+00F6}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Lower_O [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Lower_O [LAlt] + [LCtrl] + [O] => ö",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "CONTROL",  "O"]]
+    "DigiHotkeys"   :  [ ["LCONTROL","LALT" , "O"]]
 },
 {
     "Enabled"       : "1",
     "PassThrough"   : "0",
     "GroupName"     : "Diacritics",
-    "Macro"         : "{U+00CF}",
+    "Macro"         : "{U+00D6}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Upper_O [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Upper_O [Shift] + [LAlt] + [LCtrl] => Ö",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "CONTROL", "SHIFT", "O"] ]
+    "DigiHotkeys"   :  [ ["SHIFT","LALT", "LCONTROL", "O"] ]
 },
 {
     "Enabled"       : "1",
@@ -896,10 +898,10 @@
     "Macro"         : "{U+00FA}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Lower_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Lower_U [LAlt] + [U] => ú",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["LMENU", "U"] ]
+    "DigiHotkeys"   : [ ["LALT", "U"] ]
 },
 {
     "Enabled"       : "1",
@@ -908,10 +910,10 @@
     "Macro"         : "{U+00DA}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Acute_Upper_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Acute_Upper_U [Shift] + [LAlt] + [U] => Ú",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "SHIFT", "U"]  ]
+    "DigiHotkeys"   :  [ [ "SHIFT","LALT","U"]  ]
 },
 {
     "Enabled"       : "1",
@@ -920,10 +922,10 @@
     "Macro"         : "{U+00F9}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Lower_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Grave_Lower_U [RAlt] + [U] => ù",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["RMENU", "U"] ]
+    "DigiHotkeys"   :  [ ["RALT", "U"] ]
 },
 {
     "Enabled"       : "1",
@@ -932,10 +934,10 @@
     "Macro"         : "{U+00D9}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Grave_Upper_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Grave_Upper_U [Shift] + [RAlt] + [U] => Ù",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["RMENU", "SHIFT", "U"]]
+    "DigiHotkeys"   :  [ ["SHIFT","RALT", "U"]]
 },
 {
     "Enabled"       : "1",
@@ -944,10 +946,10 @@
     "Macro"         : "{U+00FB}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Lower_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Lower_U [LAlt] + [LWin] + [U] => û",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["RMENU", "LWIN",  "U"] ]
+    "DigiHotkeys"   :  [ ["LALT", "LWIN",  "U"] ]
 },
 {
     "Enabled"       : "1",
@@ -956,10 +958,10 @@
     "Macro"         : "{U+00DB}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Circumflex_Upper_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Circumflex_Upper_U [Shift] + [LAlt] + [LWin] => Û",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["RMENU", "LWIN", "SHIFT", "U"] ]
+    "DigiHotkeys"   : [ ["SHIFT","LALT","LWIN","U"] ]
 },
 {
     "Enabled"       : "1",
@@ -968,10 +970,10 @@
     "Macro"         : "{U+00FC}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Lower_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Lower_U [LCtrl] + [LAlt] + [U] => ü",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["LMENU", "CONTROL",  "U"] ]
+    "DigiHotkeys"   :  [ ["LCONTROL","LALT","U"] ]
 },
 {
     "Enabled"       : "1",
@@ -980,106 +982,9 @@
     "Macro"         : "{U+00DC}",
     "Handler"       : "OnHotkey_MacroSound",
     "Sound"         : "ShiftAlpha",
-    "Description"   : "Accent_Dieresis_Upper_U [] + [] + [] => ",
-    "Context"       : "",
+    "Description"   : "Accent_Dieresis_Upper_U [Shift] + [LCtrl] + [LAlt] => Ü",
+    "Window"       : "",
     "Modifiers"     : "",
-    "DigiHotkeys"   : [ ["LMENU", "CONTROL", "SHIFT", "U"]  ]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "{Up}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_MoveUp [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU", "I"]]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "{Down}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_MoveDown [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU", "K"] ]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "{Left}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_MoveLeft [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU", "J"]]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "{Right}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_MoveRight [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU", "L"] ]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "+{Up}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_SelectUp [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU", "SHIFT","I"]]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "+{Down}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_SelectDown [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU","SHIFT", "K"] ]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "+{Left}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_SelectLeft [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU","SHIFT", "J"]]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "GroupName"     : "Key maps",
-    "Macro"         : "+{Right}",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : " KeyMap_SelectRight [] + [] + [] => ",
-    "Context"       : "",
-    "Modifiers"     : "",
-    "DigiHotkeys"   :  [ ["MENU", "SHIFT", "L"] ]
-},
-{
-    "Enabled"       : "1",
-    "PassThrough"   : "0",
-    "Macro"         : "{Del}",
-    "GroupName"     : "Key maps",
-    "Handler"       : "OnHotkey_MacroSound",
-    "Description"   : "KeyMap_Delete [] + [] + [] => ",
-    "DigiHotkeys"    :  [ ["MENU", "D"] ]
+    "DigiHotkeys"   : [ ["SHIFT","LCONTROL","LALT","U"]  ]
 }
 ]

@@ -38,8 +38,6 @@ class DgTaskManDialog extends DgObject
 
         this.destroy( animate := false )
 
-        ;_Logger.COUNT(  A_ThisFunc, "line", A_LineNumber )
-
         Gui, New, +AlwaysOnTop +ToolWindow   hwndhWnd ; +Border
         this.hWnd := hWnd
         WM_CLOSE := 0x0010 
@@ -47,22 +45,21 @@ class DgTaskManDialog extends DgObject
 
         Gui % this.hWnd ": Color", % this.winColor
 
-        Gui % this.hWnd ": Font", % " c" enumColor.DarkSlateGray  " s10 wRegular", % "Segoe UI"
-
         for name, task in _App.taskMan.tasks {
 
             if( task.Type == enumTaskType.Timer || task.Type == enumTaskType.Reminder  || task.Type == enumTaskType.Insomnia ) {
 
                 leftTimeStr := FormatSeconds( task.getRemainingTime() )
-
+                Gui % this.hWnd ": Font", % " c" enumColor.DarkSlateGray  " s10 wRegular", % "Segoe UI"
                 Gui % this.hWnd ": Add", Text,     % " X" leftM " Y" sumY " W" txtW " H" txtH " +c" this.textColor   "+0x200 +BackgroundTrans hWndhTextName",  % name
 
                 sumY += rowH
 
                 Gui % this.hWnd ": Add", Progress, % " X" leftM  " Y" sumY " W" progW " H" rowH  " hwndhProgress" " c" this.progColor " +" enumProgress.PBS_SMOOTH, 0
                 Gui % this.hWnd ": Add", Text,     % " X" leftM  " Y" sumY " W" txtW " H" txtH " +c" this.textColor   "+0x200 +Center +BackgroundTrans hWndhTextTime",  % leftTimeStr
+                
+                Gui % this.hWnd ": Font", % " c" enumColor.DarkSlateGray  " s10 wRegular", % "Webdings"
                 Gui % this.hWnd ": Add", Button,   % " X" leftM + progW  " Y" sumY " W" btnW " H" btnH " hwndhStopBtn" , % enumUnicode.Stop
-
                 pauseResumeBtnCaption := task.isPaused ? enumUnicode.Play : enumUnicode.Pause
                 Gui % this.hWnd ": Add", Button, % " X" leftM + progW + btnW  " Y" sumY " W" btnW " H" btnH " hwndhPauseResumeBtn" , % pauseResumeBtnCaption
 
@@ -86,7 +83,7 @@ class DgTaskManDialog extends DgObject
 
         sumY += 2.0*rowH
 
-        Gui % this.hWnd ": Font",  % " s8 wRegular", % "Segoe UI"
+        Gui % this.hWnd ": Font",  % " s9 wRegular", % "Segoe UI"
 
         newTimerLinkContent := "<a>" . _App.ui.lang.lnkNewTimer . "</a>"
         newTimerLinkCallback := this.OnCmdNewTimer.Bind(this)
@@ -129,7 +126,7 @@ class DgTaskManDialog extends DgObject
             this.redraw()
         }
         
-        Gui % this.hWnd ": Show" , % "NA Hide"
+        Gui % this.hWnd ": Show" , % "NA Hide", % _App.ui.lang.mnuTaskMan
 
         WinGetPos, winX, winY, winW, winH, % "ahk_id" this.hWnd
 
@@ -144,11 +141,11 @@ class DgTaskManDialog extends DgObject
 
         if( animate_ ) {
 
-            Gui % this.hWnd ": Show", % " X" this.winX " Y" this.winY  " NA Hide"
+            Gui % this.hWnd ": Show", % " X" this.winX " Y" this.winY  " NA Hide", % _App.ui.lang.mnuTaskMan
             w32AnimateWin( this.hWnd, this.fadeDelayTick, enumAnim.FADE_IN )
 
         } else {
-            Gui % this.hWnd ": Show", % " X" this.winX " Y" this.winY " NA"
+            Gui % this.hWnd ": Show", % " X" this.winX " Y" this.winY " NA", % _App.ui.lang.mnuTaskMan
         }
 
         WinSet, Transparent, % this.transparency, % "ahk_id" this.hWnd

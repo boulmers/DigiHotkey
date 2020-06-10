@@ -1,9 +1,9 @@
-﻿;AutoHotKey    : v1.1.29.01    https://autohotkey.com/
-;Description   : Keyboard hotkeys and utilities
-;Author        : boulmers@gmail.com
-;Version       : 0.0.1
-
-;#Warn   ; Enable warnings.
+﻿/*
+AutoHotKey    : v1.1.29.01    https://autohotkey.com/
+Description   : Windows productivity tools and keyboard sounds.
+Author        : boulmers@gmail.com
+License       : MIT
+*/
 
 #SingleInstance Ignore
 #InstallKeybdHook ;Fforces keyboard hook installation;
@@ -12,20 +12,20 @@
 #NoEnv
 
 SetBatchLines -1    ; never micro-sleep for performance
-
+ListLines Off  ; disable ListLines which is equivalent to selecting the "View->Lines most recently executed" => peformance optimization after debug
+SetBatchLines -1 ; never sleep until initialization is done.
+Process, Priority, , H
 ;==============================================================================
 #include %A_ScriptDir%\..\lib\json.ahk
 #Include %A_ScriptDir%\..\lib\volume.ahk
 #Include %A_ScriptDir%\..\lib\VA.ahk
 #include %A_ScriptDir%\..\lib\RHotKey.ahk
 
-
 #include %A_ScriptDir%\..\src\DgInsomniaDialog.ahk
 #include %A_ScriptDir%\..\src\DgTimerDialog.ahk
 #include %A_ScriptDir%\..\src\DgReminderDialog.ahk
 #include %A_ScriptDir%\..\src\DgTaskManDialog.ahk
 #include %A_ScriptDir%\..\src\DgAboutDialog.ahk
-
 
 #include %A_ScriptDir%\..\src\DgObject.ahk
 #include %A_ScriptDir%\..\src\DgLogger.ahk
@@ -62,52 +62,53 @@ SetBatchLines -1    ; never micro-sleep for performance
 ; function parameters are supposed to be suffixed with _ sign (ex name_ )
 ; out variable (by ref) are prefixed with the $ (ex $outFile )
 ;==============================================================================
-subMain:
-
-      ; OnMessage( enumWinMsg.WM_INPUTLANGCHANGE,  "OnKeyboardLayoutChange")
+main:
       SetWorkingDir % A_ScriptDir
 
-      ListLines Off                                                                                                       ; disable ListLines which is equivalent to selecting the "View->Lines most recently executed" => peformance optimization after debug
-      ; Process, Priority, , H
-   
-      ;global _appDataFolder := A_AppData . "\DigiHotkey"
       global _dhkVersion    := "0.1.0"
 
-      logFile           := PathCombine( A_WorkingDir, "..\config\DigiHotkey.log")
+      logFile             := PathCombine( A_WorkingDir, "..\config\DigiHotkey.log")
       global _Logger      := new DgLogger( logFile )
-
-      global _PerfCounter := new DgPerfCounter()
-
       _Logger.logBEGIN    := true
       _Logger.logEND      := true
+      
+      _Logger.BEGIN( "main" )      
 
-      _Logger.BEGIN( "subMain" )           
+      global _PerfCounter := new DgPerfCounter()           
 
       ahk64Bits := IsAhk64bit()
+
+      _Logger.TRACE( A_ThisLabel, "ahk64Bits", ahk64Bits)
     
       SendMode Input                                                                                                      ; Better  speed
 
-      ;_PerfCounter.start()
+      /* 
+      _PerfCounter.start() 
+      */
 
       global _App    := new DgApp()
 
-      ;t1 := _PerfCounter.check()
+      /*
+      t1 := _PerfCounter.check()
+      */
 
       _App.init()
 
       _App.ui.createDialogs()
     
-      ;t2 := _PerfCounter.stop()  
+      /*
+      t2 := _PerfCounter.stop()  
+      _Logger.TRACE( "subMain", "t1_", t1, "t2_", t2 )
+      */
 
-      ;_Logger.TRACE( "subMain", "t1_", t1, "t2_", t2 )
+      OnExit( "OnExitApp" )   ; set up exit callback
 
-      OnExit( "OnExitApp" ) ; set up exit callback
+      Process, Priority, , N  ; return to normal precess priority
 
-      SetBatchLines, 10ms ; return to default speed settings
+      SetBatchLines, 10ms     ; return to default sleep settings
 
-      _Logger.END( "subMain" )
+      _Logger.END( "main" )
 
 return
 
-; EOF
     

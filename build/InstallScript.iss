@@ -15,6 +15,7 @@ OutputDir=D:\My\dev\AHK\DigiHotkey\build
 OutputBaseFilename=DigiHotkeyInstall
 Compression=lzma
 SolidCompression=yes
+PrivilegesRequired=lowest
 
 [Tasks]
 Name: "desktopicon";     Description: "{cm:CreateDesktopIcon}";     GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked

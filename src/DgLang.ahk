@@ -31,12 +31,13 @@ class DgLang extends DgObject
         this.mnuLanguage            := "Language"
         this.mnuTools               := "Tools"
         this.mnuSettings            := "Settings!"
-        this.mnuHelp                := "Help"
+        this.mnuHelp                := "Quick guide"
         this.mnuAbout               := "About"
 
         this.mnuPower        		:= "Power plan"
         this.mnuDashboard			:= "Dashboard"
         this.mnuTaskMan 			:= "Task manager"
+        this.mnuKeyboard            := "Keyboard"
         this.mnuInsert				:= "Insert"
 
         this.lnkDismiss          	:= "Dismiss"
