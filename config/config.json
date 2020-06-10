@@ -36,10 +36,10 @@
 	"notifyTipTimeoutSec": 2,
 	"numLockAlertEnabled": 1,
 	"numLockBehaviour": "Free",
-	"soundProfile": "Typewriter-Electric",
+	"soundProfile": "DigiHotkey",
 	"timerMaxSnoozeCount": 5,
 	"timerNotifyTimeoutSec": 5,
 	"timerSnoozePeriodSec": 10,
-	"volume": 24.999983,
+	"volume": 44.999988,
 	"volumeTipTimeoutSec": 2
 }
