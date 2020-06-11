@@ -405,7 +405,7 @@
     "DigiHotkeys"   :  [ ["LALT", "DOWN"]  ]
 },
 {
-    "Enabled"       : "0",
+    "Enabled"       : "1",
     "PassThrough"   : "0",
     "GroupName"     : "Volume control",
     "Sound"         : "Volume",
@@ -413,18 +413,18 @@
     "Window"       : "",
     "Modifiers"     : "",
     "Description"   : "Increase active application volume (mixer function)",
-    "DigiHotkeys"   : [ ["LCONTROL","LALT", "UP"] ]
+    "DigiHotkeys"   : [ ["LWIN","LALT", "UP"] ]
 },
 {
-    "Enabled"       : "0",
+    "Enabled"       : "1",
     "PassThrough"   : "0",
     "GroupName"     : "Volume control",
     "Sound"         : "Volume",
     "Handler"       : "OnHotkey_ActiveAppVolumeDown",
-    "Window"       : "",
+    "Window"        : "",
     "Modifiers"     : "",
     "Description"   : "Decrease active application volume (mixer function)",
-    "DigiHotkeys"   :  [ ["LCONTROL","LALT", "DOWN"]  ]
+    "DigiHotkeys"   :  [ ["LWIN","LALT", "DOWN"]  ]
 },
 {
     "Enabled"       : "1",

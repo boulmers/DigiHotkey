@@ -12,6 +12,7 @@ This project can be used both as an educational project in windows automation an
 
 -   High performance keyboard typing sound simulator with sound profiles.
 -   *JSON* user-friendly and customizable Hotkeys.
+-   Customizable Hotstrings
 -   Define, enable/disable hotkey groups.
 -   Included French diacritics hotkeys in bundled actions configuration file (diacritics group).
 -   Informs user about CapsLock & NumLock state change.
@@ -35,20 +36,21 @@ This project can be used both as an educational project in windows automation an
 -   `config\config.json`: General configuration file
 -   `config\hotstrings.json` : Hot strings
 -   `config\keyboard_US.json` ( mean to be read only configuration file)
--   `config\`l`ang.json` : (read only localization configuration file)
+-   `config\lang.json` : (read only localization configuration file)
 
 ### Executing & Compiling
 
 You can run the software by double clicking `bin\DigiHotkey.ahk`
 
 You can compile *DigiHotkey* yourself by right clicking \`bin\DigiHotkey.ahk` script file in the Explorer then clicking *Compile*
+(Consult <https://www.autohotkey.com/docs/Scripts.htm#ahk2exe>)
 
-Consult <https://www.autohotkey.com/docs/Scripts.htm#ahk2exe>
+You can also directly install *DigiHotkey* using the installer in the release tab.
 
 ### TO DO
 
-1.  User documentation.
-2.  Config files documentation.
+1.  ~~Quick Guide~~.
+2.  Config files documentation (in progress).
 3.  ~~Localize to French language~~.
 4.  ~~Add UI interface to Language selection~~.
 5.  Display keyboard *CapsLock* and *NumLock* status icon in the notification area.

@@ -221,32 +221,39 @@ class DgAudio extends DgObject
     ;------------------------------------------------------------------------------
     getAppVolume( appPID_ )
     {
-        _Logger.BEGIN( A_ThisFunc , "appPID_",  appPID_ )
+        _Logger.BEGIN( A_ThisFunc )
 
         ISAV := GetISimpleAudioVolume( appPID_ )
+
+        _Logger.TRACE( A_ThisFunc, "appPID_", appPID_, "ISAV", ISAV)
         ISimpleAudioVolume_GetMasterVolume( ISAV, level )
+
         ObjRelease( ISAV )
 
-        _Logger.END( A_ThisFunc, "level", level )
+        _Logger.END( A_ThisFunc)
 
         return level*100
     }
     ;------------------------------------------------------------------------------
     setVolume( appPID_, vol_ )
     {
-        _Logger.BEGIN( A_ThisFunc , "appPID_", appPID_, "vol_", vol_ )
+        _Logger.BEGIN( A_ThisFunc )
 
         ISAV    := GetISimpleAudioVolume( appPID_ )
         level   := ( (vol_ > 100) ? 100 : ( (vol_ < 0) ? 0: vol_) ) / 100
 
         if( this.myPID == appPID_) {
-            this.volume := level*100
+            this.volume := level*100 
         }
 
         ISimpleAudioVolume_SetMasterVolume( ISAV, level )
+
+        _Logger.TRACE( A_ThisFunc, "appPID_", appPID_, "ISAV", ISAV, "level", level)
+        
+
         ObjRelease(ISAV)
 
-        _Logger.END( A_ThisFunc, "retutn 100*level", 100*level )
+        _Logger.END( A_ThisFunc, " 100*level", 100*level )
 
         return  level*100
     }

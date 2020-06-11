@@ -273,6 +273,8 @@ class DgApp extends DgObject
         WinGet, activeAppPID,  PID, A ; Active Window Process ID
         WinGet, activeAppName, ProcessName, A ; Active Window Process Name
 
+        _Logger.TRACE(A_ThisFunc, "activeAppPID", activeAppPID, "activeAppName", activeAppName)
+
         this.changeAppVolume( activeAppPID, deltaVol_,  activeAppName )
 
         _Logger.END( A_ThisFunc )
