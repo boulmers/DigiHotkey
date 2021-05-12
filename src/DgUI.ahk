@@ -434,8 +434,8 @@ class DgUI extends DgObject
 
         } else if( enLockBehavior_ == enumLockBehaviour.Free)  {
 
-            this.miNumLockAlwaysOn.setChecked( false )  :=
-            this.miNumLockAlwaysOff.setChecked( false ) :=
+            this.miNumLockAlwaysOn.setChecked( false )  
+            this.miNumLockAlwaysOff.setChecked( false ) 
         }
 
         _Logger.END(  A_ThisFunc )
